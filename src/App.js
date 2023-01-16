@@ -1,13 +1,15 @@
 import * as React from "react";
 import { Container } from "react-bootstrap";
-import BodyHomePage from "./components/BodyHomePage";
-import NavBar from "./components/NavBar";
+import Header from './components/Header/Header'; //Include Header
+import Home from './components/Home'; //Include Header
+import Footer from './components/Footer'; //Include Header
 
 export default function App() {
   return (
     <Container>
-      <NavBar />
-      <BodyHomePage />
+      <Header />
+      <Home />
+      <Footer />
     </Container>
   )
 }
