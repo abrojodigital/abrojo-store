@@ -41,10 +41,42 @@
   },
   {
     "id":6,
-    "product":"Cazdora bomber" ,
+    "product":"Cazadora bomber" ,
     "description":"Cazadora bomber detalle de cuello desmontable de borreguillo. Manga larga acabada en puño elástico.",
     "category":"Camisas",
     "price":85.00,
     "img":"assets/img/product-5.jpg"
+  },
+  {
+    "id":7,
+    "product":"Cazadora Estructura Gris" ,
+    "description":"Cazadora tejido esrtuctura color Gris. Manga larga acabada en puño elástico.",
+    "category":"Prenda superior",
+    "price":65.00,
+    "img":"assets/img/product-7.jpg"
+  },
+  {
+    "id":8,
+    "product":"Cazadora Estructura Azul" ,
+    "description":"Cazadora tejido estructura color Azul. Manga larga acabada en puño elástico.",
+    "category":"Prenda superior",
+    "price":65.00,
+    "img":"assets/img/product-6.jpg"
+  },
+  {
+    "id":9,
+    "product":"Bermuda Estructura Crudo" ,
+    "description":"Bermuda de cintura elástica ajustable con cordón color Crudo. Bolsillos frontales y detalle de bolsillo en espalda.",
+    "category":"Pantalones | Bermudas",
+    "price":45.00,
+    "img":"assets/img/product-9.jpg"
+  },
+  {
+    "id":10,
+    "product":"Pantalón traje Azul" ,
+    "description":"Pantalón slim fit color Azul. Bolsillos frontales y detalle de bolsillos de vivo en espalda. Cierre frontal con cremallera y botón.",
+    "category":"Pantalones | Bermudas",
+    "price":55.00,
+    "img":"assets/img/product-69.jpg"
   }
 ]

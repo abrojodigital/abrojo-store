@@ -1,7 +1,7 @@
 import ItemCart from "./ItemCart"
 import products from "../../../Data/products.json"
 
-const ModalShoppingCart = ({items}) => {
+const ModalShoppingCart = () => {
   return (
     <div className="offcanvas offcanvas-end" id="modalShoppingCart" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -10,12 +10,14 @@ const ModalShoppingCart = ({items}) => {
       </button>
 
       <div className="offcanvas-header lh-fixed fs-lg">
-        <strong className="mx-auto">Su carrito ({items})</strong>
+        <strong className="mx-auto">Su carrito </strong>
       </div>
 
       <ul className="list-group list-group-lg list-group-flush">
         <ItemCart product = {products[4]} />
         <ItemCart product = {products[2]} />
+        <ItemCart product = {products[3]} />
+
       </ul>
 
       <div className="offcanvas-footer justify-between lh-fixed fs-sm bg-light mt-auto">
@@ -33,7 +35,7 @@ const ModalShoppingCart = ({items}) => {
         </button>
 
         <div className="offcanvas-header lh-fixed fs-lg">
-          <strong className="mx-auto">Su carrito ({items})</strong>
+          <strong className="mx-auto">Su carrito ()</strong>
         </div>
 
         <div className="offcanvas-body flex-grow-0 my-auto">
