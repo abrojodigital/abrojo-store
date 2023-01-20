@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Spinner from '../../common/Spinner'
 import Banner from "../../common/Banner";
 import CardProduct from "../../common/CardProduct";
@@ -10,8 +10,21 @@ import DetallesShop from "./DetallesShop";
 const ItemListContainer = () => {
   const [loading, setLoading] = useState(false)
 
+  // por ahora solo para que tenga algo de sentido el useEffect. Funciona solo setTimeOut()
+   const cargaProductos = async () => {
+    setLoading(true)
+    setTimeout( () => {
+      setLoading(false)
+    }, 1000)
+  }
+
+  useEffect(() => {
+   cargaProductos();
+  }
+    , [])
+
   return (
-    <div className="home">
+    <div className="home" id="Home">
       {loading ? <Spinner /> : null}
       <Banner imgBackGround="assets/img/cover-26.jpg" title="Colección 2023" caption="Ver ahora" heref="#season2023" />
 
