@@ -1,0 +1,50 @@
+[
+  {
+    "id":1,
+    "product":"Remera estructura",
+    "description":"Remera estructura color tiza",
+    "category":"Camisetas",
+    "price":59.90,
+    "img":"assets/img/product-65.jpg"
+  },
+  {
+    "id":2,
+    "product":"Zapato cuero negro",
+    "description":"Zapato cuero negro entramado",
+    "category":"Zapatos",
+    "price":125.00,
+    "img":"assets/img/product-66.jpg"
+  },
+  {
+    "id":3,
+    "product":"Blazer traje estructura",
+    "description":"Blazer slim fit. Cuello con solapas de muesca y manga larga acabada en puño con botones",
+    "category":"Prenda superior",
+    "price":135.00,
+    "img":"assets/img/product-70.jpg"
+  },
+  {
+    "id":4,
+    "product":"Camisa estampado hojas",
+    "description":"Camisa de cuello solapa y manga corta. Cierre frontal de botonadura",
+    "category":"Camisas",
+    "price":45.00,
+    "img":"assets/img/product-72.jpg"
+  },
+  {
+    "id":5,
+    "product":"Camisa estampado floral",
+    "description":"Camisa de cuello solapa y manga corta. Cierre frontal de botones.",
+    "category":"Camisas",
+    "price":45.00,
+    "img":"assets/img/product-68.jpg"
+  },
+  {
+    "id":6,
+    "product":"Cazdora bomber" ,
+    "description":"Cazadora bomber detalle de cuello desmontable de borreguillo. Manga larga acabada en puño elástico.",
+    "category":"Camisas",
+    "price":85.00,
+    "img":"assets/img/product-5.jpg"
+  }
+]
