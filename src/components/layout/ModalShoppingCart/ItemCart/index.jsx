@@ -24,17 +24,17 @@ const ItemCart = ({ product }) => {
                 +
               </button>
               <div class="col-4">
-              <input className="form-control" placeholder={cant} />
+                <input className="form-control" placeholder={cant} />
               </div>
               <button
                 className="btn"
                 onClick={() => setCant(cant => cant - 1)}>
                 -
               </button>
-              <button className="btn">
+              <button className="btn"
+                onClick={() => { return true }}>
                 <i className="fe fe-x"></i>
               </button>
-
             </div>
           </div>
         </div>
