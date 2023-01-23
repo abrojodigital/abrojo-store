@@ -25,9 +25,11 @@ const ItemListContainer = () => {
 
   return (
     <div className="home" id="Home">
-      {loading ? <Spinner /> : null}
       <Banner imgBackGround="assets/img/cover-26.jpg" title="Colección 2023" caption="Ver ahora" heref="#season2023" />
 
+      {loading ? <Spinner /> : null}
+
+      {/* Esto a futuro debe leerse de la bbdd y mostrar paginando */}
       <div className="section py-12">
         <div className="container">
           <div className="row">
@@ -38,7 +40,6 @@ const ItemListContainer = () => {
               <CardProduct product={products[1]} caption="Ver ahora" />
             </div>
             <div className="col-sm-4">
-
               <CardProduct product={products[2]} caption="Ver ahora" />
             </div>
           </div>
@@ -65,7 +66,6 @@ const ItemListContainer = () => {
               <CardProduct product={products[8]} caption="Ver ahora" />
             </div>
           </div>
-
         </div>
       </div>
 
