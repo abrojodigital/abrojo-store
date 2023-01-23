@@ -36,9 +36,7 @@ const ItemCart = ({ product }) => {
               </button>
 
             </div>
-
           </div>
-
         </div>
       </div>
     </li>
