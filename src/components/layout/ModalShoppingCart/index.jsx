@@ -1,7 +1,7 @@
 import ItemCart from "./ItemCart"
-import products from "../../../Data/products.json"
 
-const ModalShoppingCart = () => {
+const ModalShoppingCart = ({products}) => {
+
   return (
     <div className="offcanvas offcanvas-end" id="modalShoppingCart" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -14,9 +14,9 @@ const ModalShoppingCart = () => {
       </div>
 
       <ul className="list-group list-group-lg list-group-flush">
-        <ItemCart product = {products[4]} />
-        <ItemCart product = {products[2]} />
-        <ItemCart product = {products[3]} />
+        <ItemCart product={products[4]} />
+        <ItemCart product={products[2]} />
+        <ItemCart product={products[3]} />
 
       </ul>
 

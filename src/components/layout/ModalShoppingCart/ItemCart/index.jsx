@@ -23,7 +23,7 @@ const ItemCart = ({ product }) => {
                 onClick={() => setCant(cant => cant + 1)}>
                 +
               </button>
-              <div class="col-4">
+              <div className="col-4">
                 <input className="form-control" placeholder={cant} />
               </div>
               <button

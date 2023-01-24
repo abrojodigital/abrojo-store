@@ -1,7 +1,7 @@
 import ItemResult from "./ItemResult"
-import products from "../../../Data/products.json"
 
-const ModalSearch = () => {
+const ModalSearch = ({products}) => {
+
   return (
     <div className="offcanvas offcanvas-end" id="modalSearch" tabindex="-1" role="dialog" aria-hidden="true">
       <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
@@ -46,7 +46,6 @@ const ModalSearch = () => {
         <a className="btn btn-link px-0 text-reset" href="#...">
           Ver todo <i className="fe fe-arrow-right ms-2"></i>
         </a>
-
       </div>
 
       <div className="offcanvas-body d-none">

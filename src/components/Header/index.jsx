@@ -3,11 +3,11 @@ import ModalSearch from '../layout/ModalSearch';
 import ModalShoppingCart from '../layout/ModalShoppingCart';
 import ModalSideBar from '../layout/ModalSideBar';
 
-function Header() {
+function Header({products}) {
   return (
     <div className="header">
-      <ModalSearch />
-      <ModalShoppingCart />
+      <ModalSearch products = {products} />
+      <ModalShoppingCart products = {products} />
       <ModalSideBar />
       <NavBar />
     </div>

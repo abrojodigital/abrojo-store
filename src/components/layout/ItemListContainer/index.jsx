@@ -1,33 +1,14 @@
-import { useState, useEffect } from "react";
-import Spinner from '../../common/Spinner'
 import Banner from "../../common/Banner";
 import CardProduct from "../../common/CardProduct";
-import products from "../../../Data/products.json"
 import BannerOfertas from "../BannerOfertas";
 import SectionIdeas from "./SectionIdeas";
 import DetallesShop from "./DetallesShop";
 
-const ItemListContainer = () => {
-  const [loading, setLoading] = useState(false)
-
-  // por ahora solo para que tenga algo de sentido el useEffect. Funciona solo setTimeOut()
-   const cargaProductos = async () => {
-    setLoading(true)
-    setTimeout( () => {
-      setLoading(false)
-    }, 1000)
-  }
-
-  useEffect(() => {
-   cargaProductos();
-  }
-    , [])
+const ItemListContainer = ({products}) => {
 
   return (
     <div className="home" id="Home">
       <Banner imgBackGround="assets/img/cover-26.jpg" title="Colección 2023" caption="Ver ahora" heref="#season2023" />
-
-      {loading ? <Spinner /> : null}
 
       {/* Esto a futuro debe leerse de la bbdd y mostrar paginando */}
       <div className="section py-12">
