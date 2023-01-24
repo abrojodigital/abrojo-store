@@ -7,15 +7,17 @@ import { useEffect } from "react"
 import { useState } from "react"
 
 export default function App() {
+  const [isLoading, setisLoading] = useState(true);
   const [products, setProducts] = useState([])
   const [error, setError] = useState(null);
 
-  const fetchData = async () => {
+  async function fetchData () {
     try {
       const response = await fetch('Data/products.json')
       if (response.ok) {
         setProducts(await response.json())
         setError(null)
+        setisLoading(false)
       } else {
         setError("Hubo un error al obtener los datos");
         console.log(error)
@@ -27,13 +29,19 @@ export default function App() {
   }
   useEffect(() => {
     fetchData()
-  }, [products])
+  }, [isLoading])
 
   return (
     <Container>
+    { !isLoading ?
+      <>
       <Header products={products} />
       <ItemListContainer products={products} />
       <Footer />
+      </>
+      :
+      <h1>Cargando...</h1>
+    }
     </Container>
   )
 }

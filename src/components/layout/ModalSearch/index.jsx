@@ -3,7 +3,7 @@ import ItemResult from "./ItemResult"
 const ModalSearch = ({products}) => {
 
   return (
-    <div className="offcanvas offcanvas-end" id="modalSearch" tabindex="-1" role="dialog" aria-hidden="true">
+    <div className="offcanvas offcanvas-end" id="modalSearch" tabindex="1" role="dialog" aria-hidden="true">
       <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
         <i className="fe fe-x" aria-hidden="true"></i>
       </button>
@@ -21,7 +21,7 @@ const ModalSearch = ({products}) => {
               <option>Camisas</option>
               <option>Camisetas</option>
               <option>Prenda Superior</option>
-              <option>Pantalones</option>
+              <option>Pantalones | Bermudas</option>
               <option>Zapatos</option>
             </select>
           </div>
