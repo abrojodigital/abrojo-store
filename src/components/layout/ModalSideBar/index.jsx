@@ -67,4 +67,4 @@ const ModalSideBar = () => {
   )
 }
 
-export default ModalSideBar
+export { ModalSideBar }

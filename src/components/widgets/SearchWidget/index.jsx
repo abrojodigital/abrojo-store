@@ -6,4 +6,4 @@ const SearchWidget = () => {
   );
 }
 
-export default SearchWidget;
+export { SearchWidget }

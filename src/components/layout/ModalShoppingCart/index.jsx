@@ -49,4 +49,4 @@ const ModalShoppingCart = ({products}) => {
   )
 }
 
-export default ModalShoppingCart
+export { ModalShoppingCart }

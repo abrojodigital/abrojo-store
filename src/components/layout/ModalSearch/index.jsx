@@ -61,4 +61,4 @@ const ModalSearch = ({products}) => {
   )
 }
 
-export default ModalSearch
+export { ModalSearch }

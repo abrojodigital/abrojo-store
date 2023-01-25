@@ -26,4 +26,4 @@ const Banner = ({ imgBackGround, title, caption, href }) => {
   )
 }
 
-export default Banner;
+export { Banner };

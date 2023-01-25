@@ -1,5 +1,5 @@
 const BannerOfertas = () => {
-  return ( 
+  return (
     <section>
         <div className="container bg-cover" style={{ backgroundImage: "url(assets/img/cover-17.jpg)" }}>
           <div className="row py-12 bg-dark-10">
@@ -14,4 +14,4 @@ const BannerOfertas = () => {
   )
 }
 
-export default BannerOfertas
+export { BannerOfertas }

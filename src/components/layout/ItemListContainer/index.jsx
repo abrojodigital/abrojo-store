@@ -1,6 +1,5 @@
-import Banner from "../../common/Banner";
-import CardProduct from "../../common/CardProduct";
-import BannerOfertas from "../BannerOfertas";
+import { Banner, CardProduct } from "../../common";
+import {BannerOfertas} from "../BannerOfertas";
 import SectionIdeas from "./SectionIdeas";
 import DetallesShop from "./DetallesShop";
 
@@ -57,4 +56,4 @@ const ItemListContainer = ({products}) => {
   );
 }
 
-export default ItemListContainer;
+export { ItemListContainer }

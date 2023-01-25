@@ -16,4 +16,4 @@ function CardProduct({ product, caption }) {
   )
 }
 
-export default CardProduct;
+export { CardProduct }

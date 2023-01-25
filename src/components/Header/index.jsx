@@ -1,7 +1,5 @@
-import NavBar from '../common/NavBar'
-import ModalSearch from '../layout/ModalSearch';
-import ModalShoppingCart from '../layout/ModalShoppingCart';
-import ModalSideBar from '../layout/ModalSideBar';
+import { NavBar } from '../common'
+import { ModalSearch, ModalShoppingCart, ModalSideBar } from '../layout';
 
 function Header({products}) {
   return (
@@ -14,4 +12,4 @@ function Header({products}) {
   );
 }
 
-export default Header;
+export {Header}

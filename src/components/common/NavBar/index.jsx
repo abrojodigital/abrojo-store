@@ -1,5 +1,4 @@
-import CartWidget from "../../widgets/CartWidget"
-import SearchWidget from "../../widgets/SearchWidget"
+import {CartWidget, SearchWidget} from "../../widgets"
 
 const NavBar = () => {
   return (
@@ -31,5 +30,5 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export { NavBar }
 
