@@ -1,7 +1,10 @@
-export { BannerOfertas } from './BannerOfertas'
+export { BannerOfertas, } from './BannerOfertas'
+export { Banner } from './Banner'
 export { ItemListContainer } from './ItemListContainer'
+export { ItemDetailContainer } from './ItemDetailContainer'
+export { SectionIdeas } from './SectionIdeas'
+export { ShopDetails } from './ShopDetails'
 export { ModalSearch } from './ModalSearch'
 export { ModalShoppingCart } from './ModalShoppingCart'
 export { ModalSideBar } from './ModalSideBar'
-
 

@@ -1,4 +1,4 @@
-function DetallesShop() {
+function ShopDetails() {
   return (
     <section className="py-10 bg-light">
         <div className="container">
@@ -66,4 +66,4 @@ function DetallesShop() {
    );
 }
 
-export default DetallesShop;
+export { ShopDetails }

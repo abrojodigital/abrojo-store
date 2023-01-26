@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Container } from "react-bootstrap"
-import { ItemListContainer, Header, Footer} from './components'
+import { ItemListContainer, Header, Footer, BannerOfertas, ShopDetails, SectionIdeas} from './components'
 import { useEffect } from "react"
 import { useState } from "react"
 
@@ -8,6 +8,8 @@ export default function App() {
   const [isLoading, setisLoading] = useState(true);
   const [products, setProducts] = useState([])
   const [error, setError] = useState(null);
+
+  const msgGreeting = "Deja que nuestros diseños te lleven a un viaje de confianza y seguridad, donde cada detalle cuenta y tu imagen es lo primordial"
 
   async function fetchData () {
     try {
@@ -34,7 +36,10 @@ export default function App() {
     { !isLoading ?
       <>
       <Header products={products} />
-      <ItemListContainer products={products} />
+      <ItemListContainer products={products} greeting={msgGreeting} />
+      <BannerOfertas />
+      <SectionIdeas />
+      <ShopDetails />
       <Footer />
       </>
       :

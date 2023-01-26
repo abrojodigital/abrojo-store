@@ -1,13 +1,11 @@
-import { Banner, CardProduct } from "../../common";
-import {BannerOfertas} from "../BannerOfertas";
-import SectionIdeas from "./SectionIdeas";
-import DetallesShop from "./DetallesShop";
+import { CardProduct, Banner } from "../../../components";
 
-const ItemListContainer = ({products}) => {
+
+const ItemListContainer = ({products, greeting}) => {
 
   return (
     <div className="home" id="Home">
-      <Banner imgBackGround="assets/img/cover-26.jpg" title="Colección 2023" caption="Ver ahora" heref="#season2023" />
+      <Banner imgBackGround="assets/img/cover-26.jpg" title="Colección 2023" caption="Ver ahora" heref="#season2023" greeting={greeting}/>
 
       {/* Esto a futuro debe leerse de la bbdd y mostrar paginando */}
       <div className="section py-12">
@@ -48,10 +46,6 @@ const ItemListContainer = ({products}) => {
           </div>
         </div>
       </div>
-
-      <BannerOfertas />
-      <SectionIdeas />
-      <DetallesShop />
     </div>
   );
 }

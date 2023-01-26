@@ -1,14 +1,14 @@
-const Banner = ({ imgBackGround, title, caption, href }) => {
+const Banner = ({ imgBackGround, title, caption, href, greeting }) => {
   let urlImg = imgBackGround
 
   return (
     <section>
       <div className="container">
         <div className="row">
-        {/* Imagen */}
+          {/* Imagen */}
           <div className="col-12 col-md-8 col-lg-9 d-none d-md-block offset-md-n2 order-2">
             <div className="h-100 flickity-buttons-bottom-start">
-              <div className="w-100 h-md-100 bg-cover" style={{ backgroundImage: `url(${urlImg})`}}></div>
+              <div className="w-100 h-md-100 bg-cover" style={{ backgroundImage: `url(${urlImg})` }}></div>
             </div>
 
           </div>
@@ -19,6 +19,11 @@ const Banner = ({ imgBackGround, title, caption, href }) => {
             <a className="btn btn-dark" href={href}>
               {caption} <i className="fe fe-arrow-right ms-4"></i>
             </a>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 position-relative">
+            <h4 className="m-5 text-center">{greeting}</h4>
           </div>
         </div>
       </div>

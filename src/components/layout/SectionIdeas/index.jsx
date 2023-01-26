@@ -39,4 +39,4 @@ function SectionIdeas() {
   );
 }
 
-export default SectionIdeas;
+export { SectionIdeas }
