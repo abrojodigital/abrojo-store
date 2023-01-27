@@ -15,8 +15,8 @@ const ModalSearch = ({products}) => {
       <div className="offcanvas-body">
         <form>
           <div className="form-group">
-            <label className="visually-hidden" for="modalSearchCategories">Categorías:</label>
-            <select className="form-select" id="modalSearchCategories">
+            <label className="visually-hidden" htmlFor="modalSearchCategories">Categorías:</label>
+            <select className="form-select" id="modalSearchCategories" defaultValue={1}>
               <option selected>Todas las categorías</option>
               <option>Camisas</option>
               <option>Camisetas</option>

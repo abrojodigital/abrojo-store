@@ -1,4 +1,4 @@
-import { CardProduct, Banner } from "../../../components";
+import { CardProduct, Banner, ItemDetailContainer } from "../../../components";
 
 
 const ItemListContainer = ({products, greeting}) => {
@@ -41,7 +41,7 @@ const ItemListContainer = ({products, greeting}) => {
               <CardProduct product={products[6]} caption="Ver ahora" />
             </div>
             <div className="col-sm-4">
-              <CardProduct product={products[8]} caption="Ver ahora" />
+              <ItemDetailContainer product={products[8]} />
             </div>
           </div>
         </div>

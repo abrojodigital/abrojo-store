@@ -37,14 +37,15 @@ export default function App() {
       <>
       <Header products={products} />
       <ItemListContainer products={products} greeting={msgGreeting} />
-      <BannerOfertas />
-      <SectionIdeas />
-      <ShopDetails />
-      <Footer />
       </>
       :
       <h1>Cargando...</h1>
     }
+      <BannerOfertas />
+      <SectionIdeas />
+      <ShopDetails />
+      <Footer />
+      
     </Container>
   )
 }
