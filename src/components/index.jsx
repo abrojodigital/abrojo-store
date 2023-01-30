@@ -1,5 +1,5 @@
-export { CardProduct, NavBar, Spinner } from './common'
+export { ItemListContainer, NavBar, Spinner } from './common'
 export { Footer } from './Footer'
 export { Header } from './Header'
-export { Banner, BannerOfertas, ItemListContainer, ItemDetailContainer, ModalSearch, ModalShoppingCart, ModalSideBar, ShopDetails, SectionIdeas } from './layout'
+export { Banner, BannerOfertas, ItemList, ItemDetailContainer, ModalSearch, ModalShoppingCart, ModalSideBar, ShopDetails, SectionIdeas } from './layout'
 export { CartWidget, SearchWidget } from './widgets'

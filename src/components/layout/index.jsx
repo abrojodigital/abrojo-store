@@ -1,6 +1,6 @@
 export { BannerOfertas, } from './BannerOfertas'
 export { Banner } from './Banner'
-export { ItemListContainer } from './ItemListContainer'
+export { ItemList } from './ItemList'
 export { ItemDetailContainer } from './ItemDetailContainer'
 export { SectionIdeas } from './SectionIdeas'
 export { ShopDetails } from './ShopDetails'

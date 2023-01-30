@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { ItemDetailContainer } from '../../../components'
+import { ItemDetailContainer } from '../..'
 import Button from 'react-bootstrap/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 
-const CardProduct = ({ product, caption }) => {
+const ItemListContainer = ({ product, caption }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -38,4 +38,4 @@ const CardProduct = ({ product, caption }) => {
   )
 }
 
-export { CardProduct }
+export { ItemListContainer }

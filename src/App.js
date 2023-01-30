@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Container } from "react-bootstrap"
-import { ItemListContainer, Header, Footer, BannerOfertas, ShopDetails, SectionIdeas} from './components'
+import { ItemList, Header, Footer, BannerOfertas, ShopDetails, SectionIdeas} from './components'
 import { useEffect } from "react"
 import { useState } from "react"
 
@@ -36,7 +36,7 @@ export default function App() {
     { !isLoading ?
       <>
       <Header products={products} />
-      <ItemListContainer products={products} greeting={msgGreeting} />
+      <ItemList products={products} greeting={msgGreeting} />
       </>
       :
       <h1>Cargando...</h1>

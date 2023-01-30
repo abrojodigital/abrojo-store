@@ -1,3 +1,3 @@
 export { NavBar } from './NavBar'
-export { CardProduct } from './CardProduct'
+export { ItemListContainer } from './ItemListContainer'
 export { Spinner } from './Spinner'

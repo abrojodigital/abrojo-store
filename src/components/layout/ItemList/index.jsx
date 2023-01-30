@@ -1,7 +1,6 @@
-import { CardProduct, Banner } from "../../../components";
+import { ItemListContainer, Banner } from "../../";
 
-
-const ItemListContainer = ({products, greeting}) => {
+const ItemList = ({products, greeting}) => {
 
   return (
     <div className="home" id="Home">
@@ -12,36 +11,36 @@ const ItemListContainer = ({products, greeting}) => {
         <div className="container">
           <div className="row">
             <div className="col-sm-4">
-              <CardProduct product={products[0]} caption="Ver ahora" />
+              <ItemListContainer product={products[0]} caption="Ver ahora" />
             </div>
             <div className="col-sm-4">
-              <CardProduct product={products[1]} caption="Ver ahora" />
+              <ItemListContainer product={products[1]} caption="Ver ahora" />
             </div>
             <div className="col-sm-4">
-              <CardProduct product={products[2]} caption="Ver ahora" />
+              <ItemListContainer product={products[2]} caption="Ver ahora" />
             </div>
           </div>
           <div className="row justify-content-center pt-12">
             <div className="col-12 col-md-10">
               <div className="row align-items-center">
                 <div className="col-6">
-                  <CardProduct product={products[3]} caption="Ver ahora" />
+                  <ItemListContainer product={products[3]} caption="Ver ahora" />
                 </div>
                 <div className="col-6">
-                  <CardProduct product={products[4]} caption="Ver ahora" />
+                  <ItemListContainer product={products[4]} caption="Ver ahora" />
                 </div>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col-sm-4">
-              <CardProduct product={products[5]} caption="Ver ahora" />
+              <ItemListContainer product={products[5]} caption="Ver ahora" />
             </div>
             <div className="col-sm-4">
-              <CardProduct product={products[6]} caption="Ver ahora" />
+              <ItemListContainer product={products[6]} caption="Ver ahora" />
             </div>
             <div className="col-sm-4">
-            <CardProduct product={products[8]} caption="Ver ahora" />
+            <ItemListContainer product={products[8]} caption="Ver ahora" />
             </div>
           </div>
         </div>
@@ -50,4 +49,4 @@ const ItemListContainer = ({products, greeting}) => {
   );
 }
 
-export { ItemListContainer }
+export { ItemList }
