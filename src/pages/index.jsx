@@ -1,1 +1,2 @@
-export { FaqPage } from './faq'
+export { FaqPage } from "./faq"
+export { Home } from "./Home"
