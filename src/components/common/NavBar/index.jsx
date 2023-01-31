@@ -1,13 +1,14 @@
 import {CartWidget, SearchWidget} from "../../widgets"
 import { Link } from "react-router-dom"
+import { Button, Container, Image, Nav } from "react-bootstrap"
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand navbar-li">
-      <div className="container">
+    <Nav className="navbar navbar-expand navbar-li">
+      <Container>
         {/* branding */}
         <Link to="/">
-          <img
+          <Image
             src="assets/img/AbrojoStore.png"
             width="130"
             height="130"
@@ -23,11 +24,11 @@ const NavBar = () => {
             <CartWidget items="3" />
           </li>
         </ul>
-        <button className="navbar-toggler d-block ms-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#modalSidebar">
+        <Button className="navbar-toggler d-block" variant="light" type="button" data-bs-toggle="offcanvas" data-bs-target="#modalSidebar">
           <span className="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </nav>
+        </Button>
+      </Container>
+    </Nav>
   )
 }
 

@@ -1,33 +1,32 @@
-const Banner = ({ imgBackGround, title, caption, href, greeting }) => {
+import { Link } from "react-router-dom";
+import { Container, Row, Col, Image } from 'react-bootstrap';
+
+const Banner = ({ imgBackGround, title, caption, greeting }) => {
   let urlImg = imgBackGround
 
   return (
     <section>
-      <div className="container">
-        <div className="row">
-          {/* Imagen */}
-          <div className="col-12 col-md-8 col-lg-9 d-none d-md-block offset-md-n2 order-2">
-            <div className="h-100 flickity-buttons-bottom-start">
-              <div className="w-100 h-md-100 bg-cover" style={{ backgroundImage: `url(${urlImg})` }}></div>
-            </div>
-
+    <Container>
+      <Row>
+        <Col md={8} lg={9} className="d-none d-md-block offset-md-n2 order-2">
+          <div className="h-100 flickity-buttons-bottom-start">
+            <Image src={urlImg} className="w-100 bg-cover" />
           </div>
-          <div className="col-12 col-md-6 col-lg-5 py-15 order-1 position-relative">
-            <h1 className="display-4 mb-8">
-              {title}
-            </h1>
-            <a className="btn btn-dark" href={href}>
-              {caption} <i className="fe fe-arrow-right ms-4"></i>
-            </a>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-12 position-relative">
-            <h4 className="m-5 text-center">{greeting}</h4>
-          </div>
-        </div>
-      </div>
-    </section>
+        </Col>
+        <Col md={6} lg={5} className="py-15 order-1 position-relative">
+          <h1 className="display-4 mb-8">{title}</h1>
+          <Link to="/listproducts" className="btn btn-outline-light btn-lg" role="button">
+            {caption} <i className="fe fe-arrow-right ms-4"></i>
+          </Link>
+        </Col>
+      </Row>
+      <Row>
+      <Col className="position-relative">
+          <h3 className="m-5 text-center">{greeting}</h3>
+      </Col>
+      </Row>
+    </Container>
+  </section>
   )
 }
 
