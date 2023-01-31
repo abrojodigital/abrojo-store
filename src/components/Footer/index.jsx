@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Footer = () => {
   return (
     <div className="footer">
@@ -60,10 +62,10 @@ const Footer = () => {
                     <a className="text-gray-300" href="mailto:info@abrojostore.com">Contáctenos</a>
                   </li>
                   <li>
-                    <a className="text-gray-300" href="#...">FAQs</a>
+                    <Link className="text-gray-300" to="/faq">FAQs</Link>
                   </li>
                   <li>
-                    <a className="text-gray-300" data-bs-toggle="modal" href="#modalSizeChart">Guía de talles</a>
+                    <Link className="text-gray-300" to="/talles">Guía de talles</Link>
                   </li>
                   <li>
                     <a className="text-gray-300" href="#...">Devoluciones y Compras</a>
@@ -77,10 +79,10 @@ const Footer = () => {
                 </h6>
                 <ul className="list-unstyled mb-7 mb-sm-0">
                   <li>
-                    <a className="text-gray-300" href="#Home">Nueva Colección</a>
+                    <Link className="text-gray-300" to="/">Nueva Colección</Link>
                   </li>
                   <li>
-                    <a className="text-gray-300" href="#Sales">Ofertas!</a>
+                    <Link className="text-gray-300" to="/ofertas">Ofertas!</Link>
                   </li>
                 </ul>
 
@@ -91,13 +93,13 @@ const Footer = () => {
                 </h6>
                 <ul className="list-unstyled mb-0">
                   <li>
-                    <a className="text-gray-300" href="#...">Nuestra historia</a>
+                    <Link className="text-gray-300" to = "/historia">Nuestra historia</Link>
                   </li>
                   <li>
-                    <a className="text-gray-300" href="#!">Términos y Condiciones</a>
+                    <Link className="text-gray-300" to="/terminos">Términos y Condiciones</Link>
                   </li>
                   <li>
-                    <a className="text-gray-300" href="#!">Política de provacidad</a>
+                    <Link className="text-gray-300" to="/privacidad">Política de privacidad</Link>
                   </li>
                 </ul>
 

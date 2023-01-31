@@ -1,0 +1,12 @@
+[
+  {
+    "idOrder":1,
+    "idClient":2,
+    "orderDate":"20230201"
+  },
+  {
+    "idOrder":2,
+    "idClient":1,
+    "orderDate":"20230201"
+  }
+]

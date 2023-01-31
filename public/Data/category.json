@@ -1,0 +1,22 @@
+[
+  {
+    "categoryId":1,
+    "category":"Camisas"
+  },
+  {
+    "categoryId":2,
+    "category":"Zapatos"
+  },
+  {
+    "categoryId":3,
+    "category":"Prenda superior"
+  },
+  {
+    "categoryId":4,
+    "category":"Pantalones | Bermudas"
+  },
+  {
+    "categoryId":5,
+    "category":"Camisetas"
+  }
+]

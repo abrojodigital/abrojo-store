@@ -1,4 +1,7 @@
-import ItemCart from "./ItemCart"
+import { Link } from "react-router-dom";
+import {ItemCart} from "../../../components"
+import { Modal, ListGroup, Row, Col } from "react-bootstrap" 
+
 
 const ModalShoppingCart = ({products}) => {
 
@@ -25,8 +28,8 @@ const ModalShoppingCart = ({products}) => {
       </div>
 
       <div className="offcanvas-body">
-        <a className="btn w-100 btn-dark" href="#...">Continuar al Checkout</a>
-        <a className="btn w-100 btn-outline-dark mt-2" href="#...">Ver Carito</a>
+        <Link className="btn w-100 btn-dark" to="/checkout">Continuar al Checkout</Link>
+        <Link className="btn w-100 btn-outline-dark mt-2" to="/cart">Ver Carito</Link>
       </div>
 
       <div className="d-none">
@@ -40,9 +43,9 @@ const ModalShoppingCart = ({products}) => {
 
         <div className="offcanvas-body flex-grow-0 my-auto">
           <h6 className="mb-7 text-center">Su carrito está vació 😞</h6>
-          <a className="btn w-100 btn-outline-dark" href="#!">
+          <Link className="btn w-100 btn-outline-dark" to="/">
             Continuar comprando
-          </a>
+          </Link>
         </div>
       </div>
     </div>

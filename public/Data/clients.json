@@ -1,0 +1,30 @@
+[
+  {
+    "idClient": 1,
+    "lastName": "Bersier",
+    "firstName": "Pablo Martín",
+    "email": "abrojodigital@gmail.com",
+    "phoneNumber": "2945551234",
+    "address": {
+      "street": "San Guchito",
+      "number": "1300",
+      "cp": "9200",
+      "city": "Esquel",
+      "state": "Chubut"
+    }
+  },
+  {
+    "idClient": 2,
+    "lastName": "Carmona",
+    "firstName": "Gabriela Mónica",
+    "email": "gabrielacarmonajeftimovich@gmail.com",
+    "phoneNumber": "2945551235",
+    "address": {
+      "street": "San Guchito",
+      "number": "1200",
+      "cp": "9200",
+      "city": "Esquel",
+      "state": "Chubut"
+    }
+  }
+]

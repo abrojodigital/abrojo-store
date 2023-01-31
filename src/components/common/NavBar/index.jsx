@@ -1,11 +1,12 @@
 import {CartWidget, SearchWidget} from "../../widgets"
+import { Link } from "react-router-dom"
 
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand navbar-li">
       <div className="container">
         {/* branding */}
-        <a href="#home">
+        <Link to="/">
           <img
             src="assets/img/AbrojoStore.png"
             width="130"
@@ -13,7 +14,7 @@ const NavBar = () => {
             className="d-inline-block align-top"
             alt="Abrojo Store"
           />
-        </a>
+        </Link>
         <ul className="navbar-nav d-none d-md-flex ms-auto">
           <li className="nav-item">
             <SearchWidget />
