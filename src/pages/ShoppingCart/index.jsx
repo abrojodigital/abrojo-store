@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ItemCart, Spinner } from "../../components"
-import { Container, Row, ListGroup, Col, Button } from "react-bootstrap"
+import { Container, Row, ListGroup, Col } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import { getAllProducts } from "../../utils/Products"
 
