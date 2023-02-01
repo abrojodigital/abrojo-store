@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Container } from "react-bootstrap"
-import { Spinner, ItemList, BannerOfertas, ShopDetails, SectionIdeas } from "../../components"
+import { Spinner, ItemList, BannerOfertas, ShopDetails, SectionIdeas, Banner } from "../../components"
 import { getAllProducts } from "../../utils/Products"
 
 const Home = () => {
@@ -16,6 +16,12 @@ const Home = () => {
 
   return (
     <Container>
+    <Banner 
+        imgBackGround="assets/img/cover-26.jpg"
+        title="Colección 2023"
+        caption="Ver ahora"
+        greeting={msgGreeting}
+      />
       {
         !isLoading ?
           <>

@@ -1,17 +1,10 @@
 import { ItemListContainer, Banner } from "../../";
 import { Container, Row, Col } from 'react-bootstrap';
 
-const ItemList = ({ products, greeting }) => {
+const ItemList = ({ products }) => {
 
   return (
     <div className="home" id="Home">
-      <Banner 
-        imgBackGround="assets/img/cover-26.jpg"
-        title="Colección 2023"
-        caption="Ver ahora"
-        greeting={greeting}
-      />
-
       {/* Esto a futuro debe leerse de la bbdd y mostrar paginando */}
       <Container className="py-12">
         <Row>
