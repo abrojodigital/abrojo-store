@@ -9,8 +9,7 @@ const ModalSearch = ({ products }) => {
     const res = products.filter(product => product.categoryId === value || value === "0")
     return res
   }
-
-
+  
   return (
     <div className="offcanvas offcanvas-end" id="modalSearch" tabIndex="1" role="dialog" aria-hidden="true">
       <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
