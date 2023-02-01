@@ -15,7 +15,7 @@ const Banner = ({ imgBackGround, title, caption, greeting }) => {
         </Col>
         <Col md={6} lg={5} className="py-15 order-1 position-relative">
           <h1 className="display-4 mb-8">{title}</h1>
-          <Link to="/listproducts" className="btn btn-outline-light btn-lg" role="button">
+          <Link to="/products" className="btn btn-outline-light btn-lg" role="button">
             {caption} <i className="fe fe-arrow-right ms-4"></i>
           </Link>
         </Col>

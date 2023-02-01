@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllProducts } from "../../utils";
+import { productsService } from "../../utils";
 import { ItemListContainer, Spinner } from "../../components";
 import { Container, Row, Col, Form } from 'react-bootstrap';
 
@@ -14,7 +14,7 @@ const ListProducts = () => {
   }
 
   useEffect(() => {
-    getAllProducts()
+    productsService.getAllProducts()
       .then(data => setProducts(data))
       .then(_ => setValue("0"))
       .then(_ => setisLoading(false))
@@ -48,7 +48,7 @@ const ListProducts = () => {
             {
               getFilteredProducts().map((product, index) => (
               <Col sm={4} key={index}>
-                <ItemListContainer product={product} caption="Ver ahora" />
+                <ItemListContainer prodId = {product.id} />
               </Col>
             )
             )}

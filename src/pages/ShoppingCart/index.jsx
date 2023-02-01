@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import { ItemCart, Spinner } from "../../components"
 import { Container, Row, ListGroup, Col } from "react-bootstrap"
 import { useState, useEffect } from "react"
-import { getAllProducts } from "../../utils/Products"
+import { productsService } from "../../utils/Products"
 
 const ShoppingCart = () => {
   const [isLoading, setisLoading] = useState(true);
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    getAllProducts().then(data => setProducts(data)).then(_ => setisLoading(false))
+    productsService.getAllProducts().then(data => setProducts(data)).then(_ => setisLoading(false))
   }, [])
   return (
     <Container className="my-5">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ItemListContainer, Spinner } from "../..";
-import { getAllProducts } from "../../../utils"
+import { productsService } from "../../../utils"
 import { Container, Row, Col } from 'react-bootstrap';
 
 const HomeItemsList = () => {
@@ -8,7 +8,7 @@ const HomeItemsList = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    getAllProducts().then(data => setProducts(data)).then(_ => setisLoading(false))
+    productsService.getAllProducts().then(data => setProducts(data)).then(_ => setisLoading(false))
   }, [])
 
   return (
@@ -23,7 +23,7 @@ const HomeItemsList = () => {
           {products.map((product, index) => (
             index < 3 ? (
               <Col sm={4} key={index}>
-                <ItemListContainer product={product} caption="Ver ahora" />
+                <ItemListContainer prodId = {product.id} />
               </Col>
             ) : null
           ))}
@@ -34,7 +34,7 @@ const HomeItemsList = () => {
               {products.map((product, index) => (
                 index >= 3 && index < 5 ? (
                   <Col xs={6} key={index}>
-                    <ItemListContainer product={product} caption="Ver ahora" />
+                    <ItemListContainer prodId = {product.id}/>
                   </Col>
                 ) : null
               ))}
@@ -45,7 +45,7 @@ const HomeItemsList = () => {
           {products.map((product, index) => (
             index >= 5 && index < 8 ? (
               <Col sm={4} key={index}>
-                <ItemListContainer product={product} caption="Ver ahora" />
+                <ItemListContainer prodId = {product.id}/>
               </Col>
             ) : null
           ))}

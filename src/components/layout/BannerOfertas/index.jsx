@@ -12,7 +12,7 @@ const BannerOfertas = () => {
         <Col className="text-center text-white">
           <h4>Summer Styles</h4>
           <h2 className="display-1 text-uppercase">50% off</h2>
-          <Link to="/listproducts" className="link-underline text-reset mx-4 my-4">
+          <Link to="/products" className="link-underline text-reset mx-4 my-4">
             Shop ofertas
           </Link>
         </Col>

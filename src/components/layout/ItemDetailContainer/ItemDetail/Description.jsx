@@ -12,7 +12,7 @@ const Description = ({ product }) => {
       <Card.Body>
         <p className="card-text">{product.description}</p>
         <ItemQuantitySelector />
-        <AddItemButton />
+        <AddItemButton id={product.id}/>
       </Card.Body>
     </Card>
   )

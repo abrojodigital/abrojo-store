@@ -1,16 +1,19 @@
+import { Row, Col, Image } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+
 const ItemResult = ({product}) => {
   return (
-    <div className="row align-items-center position-relative mb-5">
-      <div className="col-4 col-md-3">
-        <img className="img-fluid" src={product.img} alt={product.product} />
-      </div>
-      <div className="col position-static">
+    <Row className="align-items-center position-relative mb-5">
+      <Col xs={4} md={3}>
+        <Image className="img-fluid" src={product.img} alt={product.product} />
+      </Col>
+      <Col className="position-static">
         <p className="mb-0 fw-bold">
-          <a className="stretched-link text-body" href="#...">{product.product}</a> <br />
+          <Link className="stretched-link text-body" to="/products">{product.product}</Link> <br />
           <span className="text-muted">$ {product.price}</span>
         </p>
-      </div>
-    </div>
+      </Col>
+    </Row>
   );
 }
 

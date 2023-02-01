@@ -1,14 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ItemDetailContainer } from '../..'
 import Button from 'react-bootstrap/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import { Card } from 'react-bootstrap'
+import { productsService } from '../../../utils'
 
-const ItemListContainer = ({ product, caption }) => {
+const ItemListContainer = ({ prodId }) => {
+  const [product, setProduct] = useState({})
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    productsService.getProduct(prodId).then(data => setProduct(data))
+  }, [prodId])
 
   return (
     <Card>
@@ -20,7 +26,7 @@ const ItemListContainer = ({ product, caption }) => {
         <Card.Title >{product.product}</Card.Title>
         <Card.Text>{product.description}</Card.Text>
         <Button variant="primary" onClick={handleShow} className="me-2 btn-dark">
-          {caption}
+          Ver Ahora
         </Button>
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
