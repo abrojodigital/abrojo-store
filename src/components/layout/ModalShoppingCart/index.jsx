@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import {ItemCart} from "../../../components"
-import { Modal, ListGroup, Row, Col } from "react-bootstrap" 
-
 
 const ModalShoppingCart = ({products}) => {
 

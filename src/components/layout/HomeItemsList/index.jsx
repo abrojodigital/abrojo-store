@@ -1,12 +1,24 @@
-import { ItemListContainer, Banner } from "../../";
+import { useState, useEffect } from "react";
+import { ItemListContainer, Spinner } from "../..";
+import { getAllProducts } from "../../../utils"
 import { Container, Row, Col } from 'react-bootstrap';
 
-const ItemList = ({ products }) => {
+const HomeItemsList = () => {
+  const [isLoading, setisLoading] = useState(true);
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    getAllProducts().then(data => setProducts(data)).then(_ => setisLoading(false))
+  }, [])
 
   return (
     <div className="home" id="Home">
       {/* Esto a futuro debe leerse de la bbdd y mostrar paginando */}
-      <Container className="py-12">
+      {
+        isLoading ?
+          <Spinner />
+        :
+        <Container className="py-12">
         <Row>
           {products.map((product, index) => (
             index < 3 ? (
@@ -39,9 +51,9 @@ const ItemList = ({ products }) => {
           ))}
         </Row>
       </Container>
-
+      }
     </div>
   );
 }
 
-export { ItemList }
+export { HomeItemsList }
