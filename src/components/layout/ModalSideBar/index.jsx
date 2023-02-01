@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const ModalSideBar = () => {
   return (
     <div className="offcanvas offcanvas-end" id="modalSidebar" tabIndex="-1" role="dialog" aria-hidden="true">
@@ -9,21 +11,21 @@ const ModalSideBar = () => {
         <div className="offcanvas-body px-10 my-auto">
           <ul className="nav nav-vertical nav-unstyled fs-2" id="sidebarNav">
             <li className="nav-item">
-              <a className="nav-link" data-bs-toggle="collapse" href="#sidebarHome">
+              <Link className="nav-link" data-bs-toggle="collapse" to="/">
                 Home
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" data-bs-toggle="collapse" href="#sidebarHome">
-                About
-              </a>
+              <Link className="nav-link" data-bs-toggle="collapse" to="/historia">
+                Acerca de la tienda
+              </Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" data-bs-toggle="collapse" href="#sidebarHome">
-                Contact us
-              </a>
+              <Link className="nav-link" data-bs-toggle="collapse" to="/contact">
+                Contactáctenos
+              </Link>
             </li>
           </ul>
         </div>

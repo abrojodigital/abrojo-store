@@ -59,7 +59,7 @@ const Footer = () => {
                 </h6>
                 <ul className="list-unstyled mb-7 mb-sm-0">
                   <li>
-                    <a className="text-gray-300" href="mailto:info@abrojostore.com">Contáctenos</a>
+                    <Link className="text-gray-300" to="/contact">Contáctenos</Link>
                   </li>
                   <li>
                     <Link className="text-gray-300" to="/faq">FAQs</Link>
@@ -68,7 +68,7 @@ const Footer = () => {
                     <Link className="text-gray-300" to="/talles">Guía de talles</Link>
                   </li>
                   <li>
-                    <a className="text-gray-300" href="#...">Devoluciones y Compras</a>
+                    <Link className="text-gray-300" to="/faq">Devoluciones y Compras</Link>
                   </li>
                 </ul>
 
