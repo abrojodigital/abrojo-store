@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { NavBar } from '../common'
-import { ModalSearch, ModalShoppingCart, ModalSideBar } from '../layout';
+import { ModalSearch, ModalShoppingCart } from '../layout';
 import { productsService } from '../../utils';
 
 function Header() {
