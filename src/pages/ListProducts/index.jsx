@@ -5,11 +5,11 @@ import { Container, Row, Col, Form } from 'react-bootstrap';
 import { useParams } from "react-router-dom";
 
 const ListProducts = () => {
+  const {categoryId} = useParams()
+
   const [isLoading, setisLoading] = useState(true)
   const [products, setProducts] = useState([])
-  const [value, setValue] = useState()
-
-  const {categoryId} = useParams()
+  const [value, setValue] = useState(0)
 
   const getFilteredProducts = () => {
     const id = parseInt(value)
@@ -20,12 +20,9 @@ const ListProducts = () => {
   useEffect(() => {
     productsService.getAllProducts()
       .then(data => setProducts(data))
-      .then(_ => setValue(0))
       .then(_ => setisLoading(false))
-  }, [])
+  }, [value])
 
-console.log(categoryId)
-  
   return (
     <Container className="my-5">
 

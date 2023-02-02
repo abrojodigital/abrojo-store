@@ -3,13 +3,14 @@ import { Form } from 'react-bootstrap';
 import ItemResult from "./ItemResult"
 
 const ModalSearch = ({ products }) => {
-  const [value, setValue] = useState("0");
+  const [value, setValue] = useState(0);
 
   const getFilteredProducts = () => {
-    const res = products.filter(product => product.categoryId === value || value === "0")
+    const id = parseInt(value)
+    const res = products.filter( product => product.categoryId === id || id === 0 )
     return res
   }
-  
+
   return (
     <div className="offcanvas offcanvas-end" id="modalSearch" tabIndex="1" role="dialog" aria-hidden="true">
       <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
@@ -23,7 +24,7 @@ const ModalSearch = ({ products }) => {
       <div className="offcanvas-body">
         <Form>
           <Form.Group>
-            <h5 srOnly>Categoría a filtrar</h5>
+            <h5>Categoría a filtrar</h5>
             <Form.Control as="select"
               value={value}
               onChange={(e) => {
@@ -45,7 +46,7 @@ const ModalSearch = ({ products }) => {
         <p>Resultados de la búsqueda:</p>
         {
           getFilteredProducts().map((product, index) => (
-            <ItemResult product={product} />))
+            <ItemResult product={product}/>))
         }
       </div>
       <div className="offcanvas-body d-none">

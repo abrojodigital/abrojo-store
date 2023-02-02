@@ -1,6 +1,6 @@
 import * as React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { Header, Footer, ModalSearch, ItemDetailContainer } from "./components"
+import { Header, Footer, ModalSearch } from "./components"
 import { FaqPage, GuiaTalles, Historia, Home, ListProducts, PoliticasPrivacidad, ShoppingCart, TerminosCondiciones, Checkout, ContactPage } from "./pages"
 
 export default function App() {
