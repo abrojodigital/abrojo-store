@@ -11,20 +11,25 @@ const ModalSideBar = () => {
         <div className="offcanvas-body px-10 my-auto">
           <ul className="nav nav-vertical nav-unstyled fs-2" id="sidebarNav">
             <li className="nav-item">
-              <Link className="nav-link" data-bs-toggle="collapse" to="/">
+              <Link className="nav-link" to="/">
                 Home
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" data-bs-toggle="collapse" to="/historia">
-                Acerca de la tienda
+              <Link className="nav-link" to="/historia">
+                Acerca de
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" data-bs-toggle="collapse" to="/contact">
+              <Link className="nav-link" to="/contact">
                 Contactáctenos
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/products">
+                Categorías
               </Link>
             </li>
           </ul>

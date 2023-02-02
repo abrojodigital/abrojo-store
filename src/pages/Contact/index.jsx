@@ -22,7 +22,7 @@ const ContactPage = () => {
   };
 
   return (
-    <Container>
+    <Container className="my-5 p-10">
       <h1 className="text-center">Contáctanos</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formName">
@@ -55,7 +55,7 @@ const ContactPage = () => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="dark" type="submit">
           Enviar
         </Button>
       </Form>

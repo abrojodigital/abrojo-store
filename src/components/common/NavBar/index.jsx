@@ -24,7 +24,7 @@ const NavBar = () => {
             <CartWidget items="3" />
           </li>
         </ul>
-        <Button className="navbar-toggler d-block" variant="light" type="button" data-bs-toggle="offcanvas" data-bs-target="#modalSidebar">
+        <Button className="navbar-toggler d-block" variant="white" type="button" data-bs-toggle="offcanvas" data-bs-target="#modalSidebar">
           <span className="navbar-toggler-icon"></span>
         </Button>
       </Container>
