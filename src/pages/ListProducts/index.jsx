@@ -2,33 +2,40 @@ import { useState, useEffect } from "react";
 import { productsService } from "../../utils";
 import { ItemListContainer, Spinner } from "../../components";
 import { Container, Row, Col, Form } from 'react-bootstrap';
+import { useParams } from "react-router-dom";
 
 const ListProducts = () => {
   const [isLoading, setisLoading] = useState(true)
   const [products, setProducts] = useState([])
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState()
+
+  const {categoryId} = useParams()
 
   const getFilteredProducts = () => {
-    const res = products.filter( product => product.categoryId === value || value === "0")
+    const id = parseInt(value)
+    const res = products.filter( product => product.categoryId === id || id === 0 )
     return res
   }
 
   useEffect(() => {
     productsService.getAllProducts()
       .then(data => setProducts(data))
-      .then(_ => setValue("0"))
+      .then(_ => setValue(0))
       .then(_ => setisLoading(false))
   }, [])
 
+console.log(categoryId)
+  
   return (
     <Container className="my-5">
 
       <Form>
         <Form.Group>
-          <h3 srOnly>Categoría a filtrar</h3>
+          <h3>Categoría a filtrar</h3>
           <Form.Control as="select"
             value={value}
             onChange={(e) => {
+              e.preventDefault()
               setValue(e.target.value)
             }}
           >

@@ -22,7 +22,6 @@ function Header() {
       :
       <Spinner />
     }
-      <ModalSideBar />
       <NavBar />
     </div>
   );
