@@ -11,8 +11,14 @@ const ListProducts = () => {
   const [products, setProducts] = useState([])
   const [value, setValue] = useState(0)
 
+  const getFilteredProducts = () => {
+    const id = parseInt(value)
+    const res = products.filter( product => product.categoryId === id || id === 0 )
+    return res
+  }
+
   useEffect(() => {
-    productsService.getByCategory(parseInt(value))
+    productsService.getAll()
       .then(data => setProducts(data))
       .then(_ => setisLoading(false))
   }, [value])
@@ -44,7 +50,7 @@ const ListProducts = () => {
         {isLoading ? <Spinner /> :
           <Row>
             {
-              products.map((product, index) => (
+              getFilteredProducts().map((product, index) => (
               <Col sm={4} key={index}>
                 <ItemListContainer prodId = {product.id} />
               </Col>

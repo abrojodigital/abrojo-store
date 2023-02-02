@@ -13,7 +13,7 @@ const ItemListContainer = ({ prodId }) => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    productsService.getProduct(prodId).then(data => setProduct(data))
+    productsService.get(prodId).then(data => setProduct(data))
   }, [prodId])
 
   return (

@@ -8,7 +8,7 @@ const HomeItemsList = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    productsService.getAllProducts().then(data => setProducts(data)).then(_ => setisLoading(false))
+    productsService.getAll().then(data => setProducts(data)).then(_ => setisLoading(false))
   }, [])
 
   return (

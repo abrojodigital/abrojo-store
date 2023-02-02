@@ -9,7 +9,7 @@ function Header() {
   const [isLoading, setisLoading] = useState(true);
 
   useEffect(()=>{
-    productsService.getAllProducts().then( data => setProducts(data)).then(_ => setisLoading(false))
+    productsService.getAll().then( data => setProducts(data)).then(_ => setisLoading(false))
   }, [] )
   return (
     <div className="header">
