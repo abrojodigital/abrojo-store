@@ -1,7 +1,7 @@
 import * as React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Header, Footer, ModalSearch, ItemDetailContainer } from "./components"
-import { FaqPage, GuiaTalles, Historia, Home, ListProducts, PoliticasPrivacidad, ShoppingCart, TerminosCondiciones, Checkout, ContacPage } from "./pages"
+import { FaqPage, GuiaTalles, Historia, Home, ListProducts, PoliticasPrivacidad, ShoppingCart, TerminosCondiciones, Checkout, ContactPage } from "./pages"
 
 export default function App() {
 
@@ -20,7 +20,7 @@ export default function App() {
         <Route path="/terminos" element={<TerminosCondiciones />} />
         <Route path="/privacidad" element={<PoliticasPrivacidad />} />
         <Route path="/modalsearch" element={<ModalSearch />} />
-        <Route path="/contact" element={<ContacPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
