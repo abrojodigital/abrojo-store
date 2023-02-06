@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const Footer = () => {
   return (
     <div className="footer">
-      <footer className="bg-dark bg-cover " style={{ backgroundImage: "url(assets/img/pattern-2.svg)" }}>
+      <footer className="bg-dark bg-cover " style={{ backgroundImage: "url(../../assets/img/pattern-2.svg)" }}>
         <div className="py-12 border-bottom border-gray-700">
           <div className="container">
             <div className="row justify-content-center">
@@ -132,12 +132,12 @@ const Footer = () => {
                 </p>
               </div>
               <div className="col-auto">
-                <img className="footer-payment" src="assets/img/mastercard.svg" alt="..." />
-                <img className="footer-payment" src="assets/img/visa.svg" alt="..." />
-                <img className="footer-payment" src="assets/img/amex.svg" alt="..." />
-                <img className="footer-payment" src="assets/img/paypal.svg" alt="..." />
-                <img className="footer-payment" src="assets/img/maestro.svg" alt="..." />
-                <img className="footer-payment" src="assets/img/klarna.svg" alt="..." />
+                <img className="footer-payment" src="../../assets/img/mastercard.svg" alt="..." />
+                <img className="footer-payment" src="../../assets/img/visa.svg" alt="..." />
+                <img className="footer-payment" src="../../assets/img/amex.svg" alt="..." />
+                <img className="footer-payment" src="../../assets/img/paypal.svg" alt="..." />
+                <img className="footer-payment" src="../../assets/img/maestro.svg" alt="..." />
+                <img className="footer-payment" src="../../assets/img/klarna.svg" alt="..." />
               </div>
             </div>
           </div>

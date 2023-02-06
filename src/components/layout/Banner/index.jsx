@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col, Image } from 'react-bootstrap';
 
 const Banner = ({ imgBackGround, title, caption, greeting }) => {
-  let urlImg = imgBackGround
 
   return (
     <section>
@@ -10,7 +9,7 @@ const Banner = ({ imgBackGround, title, caption, greeting }) => {
       <Row>
         <Col md={8} lg={9} className="d-none d-md-block offset-md-n2 order-2">
           <div className="h-100 flickity-buttons-bottom-start">
-            <Image src={urlImg} className="w-100 bg-cover" />
+            <Image src={imgBackGround} className="w-100 bg-cover" />
           </div>
         </Col>
         <Col md={6} lg={5} className="py-15 order-1 position-relative">

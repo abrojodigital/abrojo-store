@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Container>
       <Banner
-        imgBackGround="assets/img/cover-26.jpg"
+        imgBackGround="../../../assets/img/cover-26.jpg"
         title="Colección 2023"
         caption="Ver ahora"
         greeting={msgGreeting}

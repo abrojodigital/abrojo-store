@@ -11,7 +11,7 @@ const NavBar = () => {
           <LinkContainer to="/">
             <Navbar.Brand >
               <Image
-                src="assets/img/AbrojoStore.png"
+                src="../../../assets/img/AbrojoStore.png"
                 width="130"
                 height="130"
                 className="d-inline-block align-top"
