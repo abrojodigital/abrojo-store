@@ -3,11 +3,11 @@ import { Form } from 'react-bootstrap';
 import ItemResult from "./ItemResult"
 
 const ModalSearch = ({ products }) => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState();
 
   const getFilteredProducts = () => {
-    const id = parseInt(value)
-    const res = products.filter( product => product.categoryId === id || id === 0 )
+    const id = value
+    const res = products.filter(product => product.categoryId === id || id === 0)
     return res
   }
 
@@ -31,12 +31,12 @@ const ModalSearch = ({ products }) => {
                 setValue(e.target.value)
               }}
             >
-              <option value="0">Todas las categorías</option>
-              <option value="1">Camisas</option>
-              <option value="5">Camisetas</option>
-              <option value="3">Prenda Superior</option>
-              <option value="4">Pantalones | Bermudas</option>
-              <option value="2">Zapatos</option>
+              <option value="todas">Todas las categorías</option>
+              <option value="camisas">Camisas</option>
+              <option value="remeras">Camisetas</option>
+              <option value="superior">Prenda Superior</option>
+              <option value="pantalones">Pantalones | Bermudas</option>
+              <option value="zapatos">Zapatos</option>
             </Form.Control>
           </Form.Group>
         </Form>
@@ -46,7 +46,7 @@ const ModalSearch = ({ products }) => {
         <p>Resultados de la búsqueda:</p>
         {
           getFilteredProducts().map((product, index) => (
-            <ItemResult product={product}/>))
+            <ItemResult product={product} />))
         }
       </div>
       <div className="offcanvas-body d-none">

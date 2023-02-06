@@ -36,19 +36,19 @@ const NavBar = () => {
               <LinkContainer to="/historia"><Nav.Link>Acerca Nuestro</Nav.Link></LinkContainer>
               <LinkContainer to="/contact"><Nav.Link>Contáctenos</Nav.Link></LinkContainer>
               <NavDropdown title="Categorías" id="collasible-nav-dropdown">
-                <LinkContainer to="/products/category/1">
+                <LinkContainer to="/products/category/camisas">
                   <NavDropdown.Item>Camisas</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/products/category/5">
+                <LinkContainer to="/products/category/remeras">
                   <NavDropdown.Item>Camisetas</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/products/category/3">
+                <LinkContainer to="/products/category/superior">
                   <NavDropdown.Item>Prenda superior</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/products/category/4">
+                <LinkContainer to="/products/category/pantalones">
                   <NavDropdown.Item>Pantalones | Bermudas</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/products/category/2">
+                <LinkContainer to="/products/category/zapatos">
                   <NavDropdown.Item>Zapatos</NavDropdown.Item>
                 </LinkContainer>
                 {/* <NavDropdown.Divider /> */}

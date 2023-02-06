@@ -13,7 +13,7 @@ const ListProducts = () => {
   useEffect(() => {
     const promesa = new Promise((res) => {
       setTimeout(() => {
-        res(catId ? arrProducts.filter(p => p.categoryId === parseInt(catId)) : arrProducts)
+        res(catId ? arrProducts.filter(p => p.categoryId === catId) : arrProducts)
       }, 500)
     })
     promesa
@@ -24,7 +24,7 @@ const ListProducts = () => {
 useEffect(() => {
   const promesa = new Promise((res) => {
     setTimeout(() => {
-      res(value || value === "0" ? arrProducts.filter(p => p.categoryId === parseInt(value)) : arrProducts)
+      res(value ? arrProducts.filter(p => p.categoryId === value) : arrProducts)
     }, 500)
   })
   promesa
@@ -44,12 +44,12 @@ return (
               setValue(e.target.value)
             }}
           >
-            <option value="0">Todas las categorías</option>
-            <option value="1">Camisas</option>
-            <option value="5">Camisetas</option>
-            <option value="3">Prenda Superior</option>
-            <option value="4">Pantalones | Bermudas</option>
-            <option value="2">Zapatos</option>
+            <option value="todas">Todas las categorías</option>
+            <option value="camisas">Camisas</option>
+            <option value="remeras">Camisetas</option>
+            <option value="superior">Prenda Superior</option>
+            <option value="pantalones">Pantalones | Bermudas</option>
+            <option value="zapatos">Zapatos</option>
           </Form.Control>
         </Form.Group>
       </Form>
