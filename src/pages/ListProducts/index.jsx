@@ -24,7 +24,7 @@ const ListProducts = () => {
 useEffect(() => {
   const promesa = new Promise((res) => {
     setTimeout(() => {
-      res(value ? arrProducts.filter(p => p.categoryId === parseInt(value)) : arrProducts)
+      res(value || value === "0" ? arrProducts.filter(p => p.categoryId === parseInt(value)) : arrProducts)
     }, 500)
   })
   promesa
