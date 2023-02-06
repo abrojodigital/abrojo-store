@@ -1,26 +1,40 @@
-import { useState, useEffect } from "react";
-import { productsService } from "../../utils";
-import { ItemListContainer, Spinner } from "../../components";
-import { Container, Row, Col, Form } from 'react-bootstrap';
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react"
+import arrProducts from "../../Data/products.json"
+import { ItemListContainer, Spinner } from "../../components"
+import { Container, Row, Col, Form } from 'react-bootstrap'
+import { useParams } from "react-router-dom"
 
 const ListProducts = () => {
-  const {categoryId} = useParams()
-
+  const { catId } = useParams()
   const [isLoading, setisLoading] = useState(true)
   const [products, setProducts] = useState([])
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState(catId ? parseInt(catId) : 0)
 
   useEffect(() => {
-    productsService.getByCategory(parseInt(value))
+    const promesa = new Promise((res) => {
+      setTimeout(() => {
+        res(catId ? arrProducts.filter(p => p.categoryId === parseInt(catId)) : arrProducts)
+      }, 500)
+    })
+    promesa
       .then(data => setProducts(data))
-      .then(_ => setisLoading(false))
-  }, [value])
+      .then( _ => setisLoading(false))
+}, [catId])
 
-  return (
-    <Container className="my-5">
+useEffect(() => {
+  const promesa = new Promise((res) => {
+    setTimeout(() => {
+      res(value ? arrProducts.filter(p => p.categoryId === parseInt(value)) : arrProducts)
+    }, 500)
+  })
+  promesa
+    .then(data => setProducts(data))
+    .then( _ => setisLoading(false))
+}, [value])
 
-      <Form>
+return (
+  <Container className="my-5">
+    <Form>
         <Form.Group>
           <h3>Categoría a filtrar</h3>
           <Form.Control as="select"
@@ -40,22 +54,26 @@ const ListProducts = () => {
         </Form.Group>
       </Form>
 
-      <Container className="py-12">
-        {isLoading ? <Spinner /> :
-          <Row>
-            {
-              products.map((product, index) => (
+    <Container className="py-12">
+      {isLoading ? <Spinner /> :
+        <Row>
+          {
+            products.map(({ id, product, description, price, img }, index) => (
               <Col sm={4} key={index}>
-                <ItemListContainer prodId = {product.id} />
+                <ItemListContainer
+                  id={id}
+                  product={product}
+                  description={description}
+                  price={price}
+                  img={img}
+                 />
               </Col>
             )
             )}
-          </Row>}
-
-      </Container>
-
+        </Row>}
     </Container>
-  );
+  </Container>
+);
 }
 
 export { ListProducts }

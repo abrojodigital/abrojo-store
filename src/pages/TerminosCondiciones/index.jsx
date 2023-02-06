@@ -1,6 +1,8 @@
+import { Container } from "react-bootstrap"
+
 const TerminosCondiciones = () => {
   return (
-    <div className="container my-5">
+    <Container className="my-5">
       <h1>Términos y Condiciones</h1>
       <p>Bienvenido a nuestra tienda online de ropa de hombres. Al utilizar nuestro sitio web y realizar compras, aceptas los siguientes términos y condiciones:</p>
       <h3>Envío y entrega</h3>
@@ -13,7 +15,7 @@ const TerminosCondiciones = () => {
       <p>Nos comprometemos a proteger la privacidad y seguridad de tus datos personales. No compartiremos ni venderemos tus datos a terceros.</p>
       <h3>Modificaciones de los términos y condiciones</h3>
       <p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento y sin previo aviso. Por favor revisa esta página con regularidad para asegurarte de estar al tanto de los cambios más recientes.</p>
-    </div>
+    </Container>
   )
 }
 

@@ -33,13 +33,26 @@ const NavBar = () => {
               </ul>
             </Nav>
             <Nav >
-            <LinkContainer to="/historia"><Nav.Link>Acerca Nuestro</Nav.Link></LinkContainer>
-            <LinkContainer to="/contact"><Nav.Link>Contáctenos</Nav.Link></LinkContainer>
-
-              {/* <NavDropdown title="Categorías" id="collasible-nav-dropdown">
-                <NavDropdown.Item>Camisas</NavDropdown.Item>
-                <NavDropdown.Divider />
-              </NavDropdown> */}
+              <LinkContainer to="/historia"><Nav.Link>Acerca Nuestro</Nav.Link></LinkContainer>
+              <LinkContainer to="/contact"><Nav.Link>Contáctenos</Nav.Link></LinkContainer>
+              <NavDropdown title="Categorías" id="collasible-nav-dropdown">
+                <LinkContainer to="/products/category/1">
+                  <NavDropdown.Item>Camisas</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/products/category/5">
+                  <NavDropdown.Item>Camisetas</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/products/category/3">
+                  <NavDropdown.Item>Prenda superior</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/products/category/4">
+                  <NavDropdown.Item>Pantalones | Bermudas</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/products/category/2">
+                  <NavDropdown.Item>Zapatos</NavDropdown.Item>
+                </LinkContainer>
+                {/* <NavDropdown.Divider /> */}
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>

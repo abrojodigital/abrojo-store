@@ -1,20 +1,27 @@
-import { useState, useEffect } from 'react';
-import { Spinner } from 'react-bootstrap';
+import { useState, useEffect } from 'react'
+import { Spinner } from 'react-bootstrap'
 import { NavBar } from '../common'
-import { ModalSearch, ModalShoppingCart } from '../layout';
-import { productsService } from '../../utils';
+import { ModalSearch, ModalShoppingCart } from '../layout'
+import arrProducts from "../../Data/products.json"
 
-function Header() {
+const Header = () => {
   const [products, setProducts] = useState([])
   const [isLoading, setisLoading] = useState(true);
 
   useEffect(()=>{
-    productsService.getAll().then( data => setProducts(data)).then(_ => setisLoading(false))
-  }, [] )
+    const promesa = new Promise((res) => {
+      setTimeout(() => {
+        res(arrProducts)
+      }, 500)
+    })
+    promesa
+      .then(data => setProducts(data))
+      .then( _ => setisLoading(false))
+    }, [] )
   return (
     <div className="header">
     {
-      !isLoading ? 
+      !isLoading ?
       <>
       <ModalSearch products = {products} />
       <ModalShoppingCart products = {products} />
