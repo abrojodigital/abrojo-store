@@ -1,7 +1,7 @@
 import * as React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Header, Footer, ModalSearch } from "./components"
-import { FaqPage, GuiaTalles, Historia, Home, ListProducts, PoliticasPrivacidad, ShoppingCart, TerminosCondiciones, Checkout, ContactPage } from "./pages"
+import { FaqPage, GuiaTalles, Historia, Home, ListProducts, PoliticasPrivacidad, ShoppingCart, TerminosCondiciones, Checkout, ContactPage, ItemDetail } from "./pages"
 
 export default function App() {
 
@@ -13,6 +13,7 @@ export default function App() {
         <Route path="/cart" element={<ShoppingCart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/products" element={<ListProducts />} />
+        <Route path="/products/:id" element={<ItemDetail />} />
         <Route path="/products/category/:catId" element={<ListProducts />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/historia" element={<Historia />} />

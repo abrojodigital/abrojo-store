@@ -4,14 +4,14 @@ import Button from 'react-bootstrap/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import { Card } from 'react-bootstrap'
 
-const ItemListContainer = ({ id, product, description, price, img }) => {
+const ItemListContainer = ({ id, product, description, price, img, onClick }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
-    <Card>
+    <Card onClick = {onClick}>
     <Card.Header>
       <Card.Title>$ {price}</Card.Title>
     </Card.Header>
