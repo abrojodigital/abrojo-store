@@ -70,7 +70,7 @@ const ListProducts = () => {
                     description={description}
                     price={price}
                     img={img}
-                    onClick={() => navigate(`/product/${id}`)}
+                    onClick={() => navigate(`/item/${id}`)}
                   />
                 </Col>
               )

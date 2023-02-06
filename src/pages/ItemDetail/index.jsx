@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Card } from "react-bootstrap"
+import { Container, Card } from "react-bootstrap"
 import { useParams } from "react-router-dom"
 import arrProducts from "../../Data/products.json"
 
@@ -7,12 +7,12 @@ import arrProducts from "../../Data/products.json"
 const ItemDetail = () => {
   const [product, setProduct] = useState({})
 
-  const {id} = useParams()
+  const { id } = useParams()
 
   useEffect(() => {
     const promesa = new Promise((res) => {
       setTimeout(() => {
-        res(arrProducts.find(p => p.id === id))
+        res(arrProducts.find(p => p.id === parseInt(id)))
       }, 500)
     })
     promesa
@@ -21,15 +21,17 @@ const ItemDetail = () => {
 
 
   return (
-    <Card>
-      <Card.Title>
-        $ {product.price}
-      </Card.Title>
-      <Card.Img src={product.img} alt={product.product} />
-      <Card.Body>
-        <p className="card-text">{product.description}</p>
-      </Card.Body>
-    </Card>
+    <Container className="my-5">
+      <Card>
+        <Card.Title>
+          $ {product.price}
+        </Card.Title>
+        <Card.Img src={product.img} alt={product.product} />
+        <Card.Body>
+          <Card.Text>{product.description}</Card.Text>
+        </Card.Body>
+      </Card>
+    </Container>
   )
 }
 
