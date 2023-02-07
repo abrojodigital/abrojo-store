@@ -14,27 +14,16 @@ const ListProducts = () => {
   const navigate = useNavigate()
   const [search, setSearch] = useSearchParams() // ya lo usaré
 
-  useEffect(() => {
-    const promesa = new Promise((res) => {
-      setTimeout(() => {
-        res(catId ? arrProducts.filter(p => p.categoryId === catId) : arrProducts)
-      }, 500)
-    })
-    promesa
-      .then(data => setProducts(data))
-      .then(_ => setisLoading(false))
-  }, [catId])
+  const filteredProducts = value !== "todas" ? arrProducts.filter(p => p.categoryId === value) : arrProducts;
 
   useEffect(() => {
-    const promesa = new Promise((res) => {
-      setTimeout(() => {
-        res(value ? arrProducts.filter(p => p.categoryId === value) : arrProducts)
-      }, 500)
-    })
-    promesa
-      .then(data => setProducts(data))
-      .then(_ => setisLoading(false))
-  }, [value])
+    setisLoading(true);
+    (async () => {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setProducts(filteredProducts);
+      setisLoading(false);
+    })();
+  }, [value]);
 
   return (
     <Container className="my-5">
