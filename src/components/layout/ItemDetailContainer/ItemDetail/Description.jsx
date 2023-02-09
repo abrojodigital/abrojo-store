@@ -10,7 +10,7 @@ const Description = ({ product }) => {
       </Card.Title>
       <Card.Img src={product.img} alt={product.product} />
       <Card.Body>
-        <p className="card-text">{product.description}</p>
+        <Card.Text>{product.description}</Card.Text>
         <ItemQuantitySelector />
         <AddItemButton id={product.id}/>
       </Card.Body>
