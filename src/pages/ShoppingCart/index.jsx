@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ItemCart, Spinner } from "../../components"
 import { Container, Row, ListGroup, Col } from "react-bootstrap"
 import { useState, useEffect } from "react"
-import { productsService } from "../../utils/Products"
+import { productsService } from "../../services/Products"
 
 const ShoppingCart = () => {
   const [isLoading, setisLoading] = useState(true);
