@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Card, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import arrProducts from "../../Data/products.json";
+import { formatCurrency } from "../../utilities"
 
 const ItemDetail = () => {
   const [product, setProduct] = useState({});
@@ -21,7 +22,7 @@ const ItemDetail = () => {
   return (
     <Container className="my-5" style={{ display: "flex", justifyContent: "center" }}>
       <Card style={{ width: "30rem" }}>
-        <Card.Header className="align-right">$ {product.price}</Card.Header>
+        <Card.Header className="align-right">{formatCurrency(product.price)}</Card.Header>
         <Card.Title className="text-center">{product.product}</Card.Title>
         <Card.Img src={product.img} alt={product.product} />
         <Card.Body>
