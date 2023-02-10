@@ -1,12 +1,13 @@
 import { Card } from "react-bootstrap"
 import AddItemButton from "./AddItemButton"
 import ItemQuantitySelector from "./ItemQuantitySelector"
+import { formatCurrency } from "../../../../utilities"
 
 const Description = ({ product }) => {
   return (
     <Card>
       <Card.Title>
-        $ {product.price}
+        {formatCurrency(product.price)}
       </Card.Title>
       <Card.Img src={product.img} alt={product.product} />
       <Card.Body>

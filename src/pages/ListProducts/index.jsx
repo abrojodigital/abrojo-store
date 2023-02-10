@@ -4,7 +4,6 @@ import { ItemListContainer, Spinner } from "../../components"
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { useParams, useNavigate, useSearchParams } from "react-router-dom"
 
-
 const ListProducts = () => {
   const { catId } = useParams()
   const [isLoading, setisLoading] = useState(true)

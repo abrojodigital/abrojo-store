@@ -3,6 +3,8 @@ import { ItemDetailContainer } from '../..'
 import Button from 'react-bootstrap/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import { Card } from 'react-bootstrap'
+import { formatCurrency } from "../../../utilities"
+
 
 const ItemListContainer = ({ id, product, description, price, img, onClick }) => {
   const [show, setShow] = useState(false);
@@ -13,7 +15,7 @@ const ItemListContainer = ({ id, product, description, price, img, onClick }) =>
   return (
     <Card onClick = {onClick}>
     <Card.Header>
-      <Card.Title>$ {price}</Card.Title>
+      <Card.Title>{formatCurrency(price)}</Card.Title>
     </Card.Header>
     <Card.Img src={img} className="card-img-top" alt={product} />
       <Card.Body>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./context/cartContext";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 import { Header, Footer, ModalSearch } from "./components";
 import {
   FaqPage,
@@ -18,7 +18,7 @@ import {
 
 export default function App() {
   return (
-    <CartProvider>
+    <ShoppingCartProvider>
       <BrowserRouter>
         <Header />
         <Routes>
@@ -38,6 +38,6 @@ export default function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </CartProvider>
+    </ShoppingCartProvider>
   );
 }

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { Row, Col, ListGroupItem, Image } from "react-bootstrap"
 import ItemQuantitySelector from "../../layout/ItemDetailContainer/ItemDetail/ItemQuantitySelector"
+import { formatCurrency } from "../../../utilities"
 
 const ItemCart = ({ product }) => {
 
@@ -15,7 +16,7 @@ const ItemCart = ({ product }) => {
       <Col className="col-4">
         <p className="fs-sm fw-bold mb-7">
           <Link className="text-body" to="/">{product.product}</Link> <br />
-          <span className="text-muted">$ {product.price}</span>
+          <span className="text-muted">{formatCurrency(product.price)}</span>
         </p>
        <ItemQuantitySelector />
       </Col>
