@@ -48,10 +48,10 @@ const ListProducts = () => {
 
       <Container className="py-12">
         {isLoading ? <Spinner /> :
-          <Row>
+          <Row md={2} xs={1} lg={3} className="g-3">
             {
               products.map(({ id, product, description, price, img }, index) => (
-                <Col sm={4} key={index}>
+                <Col key={index} sm={4}>
                   <ItemListContainer
                     id={id}
                     product={product}

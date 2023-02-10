@@ -5,7 +5,6 @@ import Offcanvas from 'react-bootstrap/Offcanvas'
 import { Card } from 'react-bootstrap'
 import { formatCurrency } from "../../../utilities"
 
-
 const ItemListContainer = ({ id, product, description, price, img, onClick }) => {
   const [show, setShow] = useState(false);
 

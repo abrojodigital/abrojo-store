@@ -1,29 +1,40 @@
-import { Link } from "react-router-dom"
-import { Row, Col, ListGroupItem, Image } from "react-bootstrap"
-import ItemQuantitySelector from "../../layout/ItemDetailContainer/ItemDetail/ItemQuantitySelector"
-import { formatCurrency } from "../../../utilities"
+import React from "react";
+import { Button, Stack } from "react-bootstrap";
+import { useShoppingCart } from "../../../context/ShoppingCartContext";
+import products from "../../../Data/products.json";
+import { formatCurrency } from "../../../utilities/formatCurrency";
 
-const ItemCart = ({ product }) => {
+const ItemCart = ({ id, quantity }) => {
+  const { removeFromCart } = useShoppingCart();
+  const item = products.find((i) => i.id === id);
+  if (!item) return null;
 
   return (
-    <ListGroupItem>
-    <Row className="align-items-center">
-      <Col className="col-4">
-        <Link to="/">
-          <Image className="img-fluid" src={product.img} alt={product.product} />
-        </Link>
-      </Col>
-      <Col className="col-4">
-        <p className="fs-sm fw-bold mb-7">
-          <Link className="text-body" to="/">{product.product}</Link> <br />
-          <span className="text-muted">{formatCurrency(product.price)}</span>
-        </p>
-       <ItemQuantitySelector />
-      </Col>
-    </Row>
-  </ListGroupItem>
-
+    <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
+      <img
+        src={item.img}
+        style={{ width: "75px", height: "125px", objectFit: "cover" }}
+        alt={item.product}
+      />
+      <div className="me-auto">
+        <div>
+          {item.prodcut}
+          {quantity > 1 && (
+            <span className="text-muted" style={{ fontSize: "0.65rem" }}>
+              x{quantity}
+            </span>
+          )}
+        </div>
+        <div className="text-muted" style={{ fontSize: "0.75rem" }}>
+          {formatCurrency(item.price)}
+        </div>
+      </div>
+      <div>{formatCurrency(item.price * quantity)}</div>
+      <Button variant="outline-danger" size="sm" onClick={() => removeFromCart(item.id)}>
+        &times;
+      </Button>
+    </Stack>
   );
-}
+};
 
-export { ItemCart }
+export { ItemCart };

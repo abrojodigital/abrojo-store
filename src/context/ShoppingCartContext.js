@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { ShoppingCart } from "../components/ShoppingCart";
+import { ModalShoppingCart } from "../components";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const ShoppingCartContext = createContext({});
@@ -78,7 +78,7 @@ export const ShoppingCartProvider = ({ children }) => {
       }}
     >
       {children}
-      <ShoppingCart isOpen={isOpen} />
+      <ModalShoppingCart isOpen={isOpen} />
     </ShoppingCartContext.Provider>
   );
 }

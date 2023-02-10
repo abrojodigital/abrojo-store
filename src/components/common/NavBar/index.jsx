@@ -28,7 +28,7 @@ const NavBar = () => {
                   <SearchWidget />
                 </li>
                 <li className="nav-item ms-lg-n1">
-                  <CartWidget items="3" />
+                  <CartWidget />
                 </li>
               </ul>
             </Nav>
