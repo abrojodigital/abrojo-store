@@ -1,4 +1,4 @@
-import { CartWidget, SearchWidget } from "../../widgets"
+import { CartWidget } from "../../widgets"
 import { Container, Image, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
 
@@ -22,18 +22,9 @@ const NavBar = () => {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
+
             <Nav className="me-auto">
-              <ul className="navbar-nav d-none d-md-flex ms-auto">
-                <li className="nav-item">
-                  <SearchWidget />
-                </li>
-                <li className="nav-item ms-lg-n1">
-                  <CartWidget />
-                </li>
-              </ul>
-            </Nav>
-            <Nav >
-              <LinkContainer to="/historia"><Nav.Link>Acerca Nuestro</Nav.Link></LinkContainer>
+              <LinkContainer to="/historia"><Nav.Link>Nuestra Historia</Nav.Link></LinkContainer>
               <LinkContainer to="/contact"><Nav.Link>Contáctenos</Nav.Link></LinkContainer>
               <NavDropdown title="Categorías" id="collasible-nav-dropdown">
                 <LinkContainer to="/products/category/camisas">
@@ -53,6 +44,9 @@ const NavBar = () => {
                 </LinkContainer>
                 {/* <NavDropdown.Divider /> */}
               </NavDropdown>
+            </Nav>
+            <Nav className="me-8" >
+              <CartWidget />
             </Nav>
           </Navbar.Collapse>
         </Container>

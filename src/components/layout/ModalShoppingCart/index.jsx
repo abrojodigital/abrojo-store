@@ -27,7 +27,7 @@ const ModalShoppingCart = ({ isOpen }) => {
     return (
         <Offcanvas show={isOpen} onHide={closeCart} placement="end">
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Cart</Offcanvas.Title>
+                <Offcanvas.Title>Carrito de puro estilo</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <Stack gap={3}>
