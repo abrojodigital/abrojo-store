@@ -5,7 +5,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas'
 import { Card } from 'react-bootstrap'
 import { formatCurrency } from "../../../utilities"
 
-const ItemListContainer = ({ id, product, description, price, img, onClick }) => {
+const ItemListContainer = ({ id, title, description, price, img, onClick }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -16,19 +16,19 @@ const ItemListContainer = ({ id, product, description, price, img, onClick }) =>
     <Card.Header>
       <Card.Title>{formatCurrency(price)}</Card.Title>
     </Card.Header>
-    <Card.Img src={img} className="card-img-top" alt={product} />
+    <Card.Img src={img} className="card-img-top" alt={title} />
       <Card.Body>
-        <Card.Title >{product}</Card.Title>
+        <Card.Title >{title}</Card.Title>
         <Card.Text>{description}</Card.Text>
         <Button variant="primary" onClick={handleShow} className="me-2 btn-dark">
           Ver Ahora
         </Button>
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title>{product}</Offcanvas.Title>
+            <Offcanvas.Title>{title}</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <ItemDetailContainer product={{ id, product, description, price, img }} />
+            <ItemDetailContainer product={{ id, title, description, price, img }} />
           </Offcanvas.Body>
         </Offcanvas>
       </Card.Body>

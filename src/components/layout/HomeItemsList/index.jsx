@@ -32,7 +32,7 @@ const HomeItemsList = () => {
               <Col sm={4} key={index}>
               <ItemListContainer
                   id={product.id}
-                  product={product.product}
+                  product={product.title}
                   description={product.description}
                   price={product.price}
                   img={product.img}
@@ -49,7 +49,7 @@ const HomeItemsList = () => {
                   <Col xs={6} key={index}>
                   <ItemListContainer
                   id={product.id}
-                  product={product.product}
+                  product={product.title}
                   description={product.description}
                   price={product.price}
                   img={product.img}
@@ -66,7 +66,7 @@ const HomeItemsList = () => {
               <Col sm={4} key={index}>
               <ItemListContainer
                   id={product.id}
-                  product={product.product}
+                  product={product.title}
                   description={product.description}
                   price={product.price}
                   img={product.img}

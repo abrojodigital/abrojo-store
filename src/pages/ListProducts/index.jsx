@@ -50,11 +50,11 @@ const ListProducts = () => {
         {isLoading ? <Spinner /> :
           <Row md={2} xs={1} lg={3} className="g-3">
             {
-              products.map(({ id, product, description, price, img }, index) => (
+              products.map(({ id, title, description, price, img }, index) => (
                 <Col key={index} sm={4}>
                   <ItemListContainer
                     id={id}
-                    product={product}
+                    product={title}
                     description={description}
                     price={price}
                     img={img}

@@ -17,7 +17,7 @@ const ItemDetailContainer = ({ product }) => {
       <Card.Title>
         {formatCurrency(product.price)}
       </Card.Title>
-      <Card.Img src={product.img} alt={product.product} />
+      <Card.Img src={product.img} alt={product.title} />
       <Card.Body>
         <Card.Text>{product.description}</Card.Text>
 

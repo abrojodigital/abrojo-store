@@ -1,92 +1,92 @@
 [
   {
     "id":1,
-    "product":"Remera estructura",
+    "title":"Remera estructura",
     "description":"Remera estructura color tiza",
     "categoryId":"remeras",
     "price":59.90,
-    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/product-65.jpg",
+    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/title-65.jpg",
     "stock": 100
   },
   {
     "id":2,
-    "product":"Zapato cuero negro",
+    "title":"Zapato cuero negro",
     "description":"Zapato cuero negro entramado",
     "categoryId":"zapatos",
     "price":125.00,
-    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/product-66.jpg",
+    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/title-66.jpg",
     "stock": 100
   },
   {
     "id":3,
-    "product":"Blazer traje estructura",
+    "title":"Blazer traje estructura",
     "description":"Blazer slim fit. Cuello con solapas de muesca y manga larga acabada en puño con botones",
     "categoryId":"superior",
     "price":135.00,
-    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/product-70.jpg",
+    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/title-70.jpg",
     "stock": 100
   },
   {
     "id":4,
-    "product":"Camisa estampado hojas",
+    "title":"Camisa estampado hojas",
     "description":"Camisa de cuello solapa y manga corta. Cierre frontal de botonadura",
     "categoryId":"camisas",
     "price":45.00,
-    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/product-72.jpg",
+    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/title-72.jpg",
     "stock": 100
   },
   {
     "id":5,
-    "product":"Camisa estampado floral",
+    "title":"Camisa estampado floral",
     "description":"Camisa de cuello solapa y manga corta. Cierre frontal de botones.",
     "categoryId":"camisas",
     "price":45.00,
-    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/product-68.jpg",
+    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/title-68.jpg",
     "stock": 100
   },
   {
     "id":6,
-    "product":"Cazadora bomber" ,
+    "title":"Cazadora bomber" ,
     "description":"Cazadora bomber detalle de cuello desmontable de borreguillo. Manga larga acabada en puño elástico.",
     "categoryId":"superior",
     "price":85.00,
-    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/product-5.jpg",
+    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/title-5.jpg",
     "stock": 100
   },
   {
     "id":7,
-    "product":"Cazadora Estructura Gris" ,
+    "title":"Cazadora Estructura Gris" ,
     "description":"Cazadora tejido esrtuctura color Gris. Manga larga acabada en puño elástico.",
     "categoryId":"superior",
     "price":65.00,
-    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/product-7.jpg",
+    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/title-7.jpg",
     "stock": 100
   },
   {
     "id":8,
-    "product":"Cazadora Estructura Azul" ,
+    "title":"Cazadora Estructura Azul" ,
     "description":"Cazadora tejido estructura color Azul. Manga larga acabada en puño elástico.",
     "categoryId":"superior",
     "price":65.00,
-    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/product-6.jpg",
+    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/title-6.jpg",
     "stock": 100
   },
   {
     "id":9,
-    "product":"Bermuda Estructura Crudo" ,
+    "title":"Bermuda Estructura Crudo" ,
     "description":"Bermuda de cintura elástica ajustable con cordón color Crudo. Bolsillos frontales y detalle de bolsillo en espalda.",
     "categoryId":"pantalones",
     "price":45.00,
-    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/product-9.jpg",
+    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/title-9.jpg",
     "stock": 100
   },
   {
     "id":10,
-    "product":"Pantalón traje Azul" ,
+    "title":"Pantalón traje Azul" ,
     "description":"Pantalón slim fit color Azul. Bolsillos frontales y detalle de bolsillos de vivo en espalda. Cierre frontal con cremallera y botón.",
     "categoryId":"pantalones",
     "price":55.00,
-    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/product-69.jpg",
+    "img":"https://abrojodigital.github.io/abrojo-store/public/assets/img/title-69.jpg",
     "stock": 100
   }
 ]
