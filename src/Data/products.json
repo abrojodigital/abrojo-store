@@ -1,7 +1,7 @@
 [
   {
     "id":1,
-    "product":"Remera estructura",
+    "title":"Remera estructura",
     "description":"Remera estructura color tiza",
     "categoryId":"remeras",
     "price":59.90,
@@ -10,7 +10,7 @@
   },
   {
     "id":2,
-    "product":"Zapato cuero negro",
+    "title":"Zapato cuero negro",
     "description":"Zapato cuero negro entramado",
     "categoryId":"zapatos",
     "price":125.00,
@@ -19,7 +19,7 @@
   },
   {
     "id":3,
-    "product":"Blazer traje estructura",
+    "title":"Blazer traje estructura",
     "description":"Blazer slim fit. Cuello con solapas de muesca y manga larga acabada en puño con botones",
     "categoryId":"superior",
     "price":135.00,
@@ -28,7 +28,7 @@
   },
   {
     "id":4,
-    "product":"Camisa estampado hojas",
+    "title":"Camisa estampado hojas",
     "description":"Camisa de cuello solapa y manga corta. Cierre frontal de botonadura",
     "categoryId":"camisas",
     "price":45.00,
@@ -37,7 +37,7 @@
   },
   {
     "id":5,
-    "product":"Camisa estampado floral",
+    "title":"Camisa estampado floral",
     "description":"Camisa de cuello solapa y manga corta. Cierre frontal de botones.",
     "categoryId":"camisas",
     "price":45.00,
@@ -46,7 +46,7 @@
   },
   {
     "id":6,
-    "product":"Cazadora bomber" ,
+    "title":"Cazadora bomber" ,
     "description":"Cazadora bomber detalle de cuello desmontable de borreguillo. Manga larga acabada en puño elástico.",
     "categoryId":"superior",
     "price":85.00,
@@ -55,7 +55,7 @@
   },
   {
     "id":7,
-    "product":"Cazadora Estructura Gris" ,
+    "title":"Cazadora Estructura Gris" ,
     "description":"Cazadora tejido esrtuctura color Gris. Manga larga acabada en puño elástico.",
     "categoryId":"superior",
     "price":65.00,
@@ -64,7 +64,7 @@
   },
   {
     "id":8,
-    "product":"Cazadora Estructura Azul" ,
+    "title":"Cazadora Estructura Azul" ,
     "description":"Cazadora tejido estructura color Azul. Manga larga acabada en puño elástico.",
     "categoryId":"superior",
     "price":65.00,
@@ -73,7 +73,7 @@
   },
   {
     "id":9,
-    "product":"Bermuda Estructura Crudo" ,
+    "title":"Bermuda Estructura Crudo" ,
     "description":"Bermuda de cintura elástica ajustable con cordón color Crudo. Bolsillos frontales y detalle de bolsillo en espalda.",
     "categoryId":"pantalones",
     "price":45.00,
@@ -82,7 +82,7 @@
   },
   {
     "id":10,
-    "product":"Pantalón traje Azul" ,
+    "title":"Pantalón traje Azul" ,
     "description":"Pantalón slim fit color Azul. Bolsillos frontales y detalle de bolsillos de vivo en espalda. Cierre frontal con cremallera y botón.",
     "categoryId":"pantalones",
     "price":55.00,
