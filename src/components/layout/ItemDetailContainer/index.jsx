@@ -1,8 +1,11 @@
+import { useState, useEffect } from "react"
 import { Card, Button } from "react-bootstrap"
 import { useShoppingCart } from "../../../context/ShoppingCartContext"
+import { productsService } from "../../../services/Products";
 import { formatCurrency } from "../../../utilities"
 
-const ItemDetailContainer = ({ product }) => {
+
+const ItemDetailContainer = ({ id }) => {
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -10,17 +13,23 @@ const ItemDetailContainer = ({ product }) => {
     removeFromCart,
   } = useShoppingCart();
 
+  const [product, setProduct] = useState({});
+
+
+  useEffect(() => {
+    productsService.get(id)
+      .then(data => setProduct(data))
+  }, [])
+
   const quantity = getItemQuantity(product.id);
   return (
 
     <Card>
-      <Card.Title>
-        {formatCurrency(product.price)}
-      </Card.Title>
+      <Card.Header className="align-right">{formatCurrency(product.price)}</Card.Header>
+      <Card.Title className="text-center">{product.title}</Card.Title>
       <Card.Img src={product.img} alt={product.title} />
       <Card.Body>
         <Card.Text>{product.description}</Card.Text>
-
         <div className="mt-auto">
           {quantity === 0 ? (
             <Button

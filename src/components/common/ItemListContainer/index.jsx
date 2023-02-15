@@ -28,7 +28,7 @@ const ItemListContainer = ({ id, title, description, price, img, onClick }) => {
             <Offcanvas.Title>{title}</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <ItemDetailContainer product={{ id, title, description, price, img }} />
+            <ItemDetailContainer id={id} />
           </Offcanvas.Body>
         </Offcanvas>
       </Card.Body>

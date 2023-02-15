@@ -1,27 +1,29 @@
 import { useState, useEffect } from "react"
-import arrProducts from "../../Data/products.json"
 import { ItemListContainer, Spinner } from "../../components"
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { useParams, useNavigate, useSearchParams } from "react-router-dom"
+import { productsService } from "../../services/Products"
 
 const ListProducts = () => {
   const { catId } = useParams()
   const [isLoading, setisLoading] = useState(true)
   const [products, setProducts] = useState([])
-  const [value, setValue] = useState(catId)
+  const [value, setValue] = useState(catId!== undefined ? catId : "todas")
 
   const navigate = useNavigate()
-  const [search, setSearch] = useSearchParams() // ya lo usaré
-
-  const filteredProducts = value !== "todas" ? arrProducts.filter(p => p.categoryId === value) : arrProducts;
+  // const [search, setSearch] = useSearchParams() // ya lo usaré
 
   useEffect(() => {
     setisLoading(true);
-    (async () => {
-      await new Promise(resolve => setTimeout(resolve, 500));
-      setProducts(filteredProducts);
-      setisLoading(false);
-    })();
+    if( value !== "todas"){
+      productsService.getByCategory(value)
+      .then(data => setProducts(data))
+      .then(_ => setisLoading(false))
+    } else {
+      productsService.getAll()
+        .then(data => setProducts(data))
+        .then(_ => setisLoading(false))
+    }
   }, [value]);
 
   return (

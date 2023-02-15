@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 import { Container, Card, Button } from "react-bootstrap"
 import { useParams } from "react-router-dom"
-import arrProducts from "../../Data/products.json"
 import { useShoppingCart } from "../../context/ShoppingCartContext"
 import { formatCurrency } from "../../utilities"
+import { productsService } from '../../services/Products'
 
 const ItemDetail = () => {
   const {
@@ -16,16 +16,10 @@ const ItemDetail = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
 
-  const fetchData = async () => {
-    const data = arrProducts.find(p => p.id === parseInt(id));
-    setTimeout(() => {
-      setProduct(data);
-    }, 500);
-  }
-
   useEffect(() => {
-    fetchData()
-  }, [id])
+    productsService.get(id)
+      .then(data => setProduct(data))
+  }, [])
 
   const quantity = getItemQuantity(product.id)
 
