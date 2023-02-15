@@ -13,7 +13,7 @@ const Home = () => {
         caption="Ver ahora"
         greeting={msgGreeting}
       />
-      <HomeItemsList greeting={msgGreeting} />
+      <HomeItemsList />
       <BannerOfertas />
       <SectionIdeas />
       <ShopDetails />

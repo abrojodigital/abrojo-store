@@ -19,7 +19,7 @@ const Header = () => {
     {
       !isLoading ?
       <>
-      <ModalSearch products = {products} />
+      <ModalSearch />
       <ModalShoppingCart />
       </>
       :

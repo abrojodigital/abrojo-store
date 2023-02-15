@@ -7,6 +7,7 @@ import { productsService } from "../../services/Products"
 const ListProducts = () => {
   const { catId } = useParams()
   const [isLoading, setisLoading] = useState(true)
+  const [error, setError] = useState(null)
   const [products, setProducts] = useState([])
   const [value, setValue] = useState(catId!== undefined ? catId : "todas")
 
@@ -14,17 +15,25 @@ const ListProducts = () => {
   // const [search, setSearch] = useSearchParams() // ya lo usaré
 
   useEffect(() => {
-    setisLoading(true);
-    if( value !== "todas"){
-      productsService.getByCategory(value)
-      .then(data => setProducts(data))
-      .then(_ => setisLoading(false))
-    } else {
-      productsService.getAll()
-        .then(data => setProducts(data))
-        .then(_ => setisLoading(false))
-    }
+    const fetchData = async () => {
+      try {
+        let data;
+        if (value !== "todas") {
+          data = await productsService.getByCategory(value);
+        } else {
+          data = await productsService.getAll();
+        }
+        setProducts(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setisLoading(false);
+      }
+    };
+
+    fetchData();
   }, [value]);
+
 
   return (
     <Container className="my-5">

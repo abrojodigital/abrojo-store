@@ -12,13 +12,13 @@ const ItemListContainer = ({ id, title, description, price, img, onClick }) => {
   const handleShow = () => setShow(true);
 
   return (
-    <Card onClick = {onClick}>
-    <Card.Header>
-      <Card.Title>{formatCurrency(price)}</Card.Title>
-    </Card.Header>
-    <Card.Img src={img} className="card-img-top" alt={title} />
-      <Card.Body>
+    <Card onClick={onClick}>
+      <Card.Header>
         <Card.Title >{title}</Card.Title>
+        <Card.Subtitle>{formatCurrency(price)}</Card.Subtitle>
+      </Card.Header>
+      <Card.Img src={img} className="card-img-top" alt={title} />
+      <Card.Body>
         <Card.Text>{description}</Card.Text>
         <Button variant="primary" onClick={handleShow} className="me-2 btn-dark">
           Ver Ahora

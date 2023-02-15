@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Container, Row, Col, ListGroup } from 'react-bootstrap';
+import { productsService } from "../../../services/Products";
 import ItemResult from "./ItemResult";
 
-const ModalSearch = ({ products }) => {
-  const [value, setValue] = useState();
+const ModalSearch = () => {
+  const [products, setProducts] = useState([])
+  const [value, setValue] = useState("todas")
 
-  const getFilteredProducts = () => {
-    const id = value;
-    const res = (id !== "todas" ? products.filter(product => product.categoryId === id ) : products)
-    return res;
-  }
+  useEffect(() => {
+    if( value !== "todas"){
+      productsService.getByCategory(value)
+      .then(data => setProducts(data))
+    } else {
+      productsService.getAll()
+        .then(data => setProducts(data))
+    }
+  }, [value]);
 
   return (
     <Container className="offcanvas offcanvas-end" id="modalSearch" tabIndex="1" role="dialog" aria-hidden="true">
@@ -51,7 +57,7 @@ const ModalSearch = ({ products }) => {
           <p>Resultados de la búsqueda:</p>
           <ListGroup>
             {
-              getFilteredProducts().map((product, index) => (
+              products.map((product, index) => (
                 <ItemResult key={index} product={product} />))
             }
           </ListGroup>

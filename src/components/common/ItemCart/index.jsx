@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button, Stack } from "react-bootstrap";
+import { Spinner } from "../..";
 import { useShoppingCart } from "../../../context/ShoppingCartContext";
 import { productsService } from "../../../services/Products";
 import { formatCurrency } from "../../../utilities/formatCurrency";
@@ -8,25 +9,26 @@ const ItemCart = ({ id, quantity }) => {
   const { removeFromCart } = useShoppingCart();
   const [item, setItem] = useState({});
 
-
   useEffect(() => {
-    productsService.get(id)
-      .then(data => setItem(data))
-  }, [])
+    const getItem = async () => {
+      const data = await productsService.get(id);
+      setItem(data);
+    };
+    getItem();
+  }, [id]);
 
-  // const item = products.find((i) => i.id === id);
-  // if (!item) return null;
+  if (!item) return <Spinner />;
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
         src={item.img}
         style={{ width: "75px", height: "125px", objectFit: "cover" }}
-        alt={item.product}
+        alt={item.title}
       />
       <div className="me-auto">
         <div>
-          {item.prodcut}
+          {item.title}
           {quantity > 1 && (
             <span className="text-muted" style={{ fontSize: "0.65rem" }}>
               x{quantity}

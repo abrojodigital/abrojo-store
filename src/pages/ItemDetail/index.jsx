@@ -17,9 +17,16 @@ const ItemDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    productsService.get(id)
-      .then(data => setProduct(data))
-  }, [])
+    const fetchData = async () => {
+      try {
+        const data = await productsService.get(id);
+        setProduct(data);
+      } catch (error) {
+        console.error("Error trayendo el producto:", error);
+      }
+    };
+    fetchData();
+  }, [id]);
 
   const quantity = getItemQuantity(product.id)
 
@@ -27,9 +34,9 @@ const ItemDetail = () => {
   return (
     <Container className="my-5" style={{ display: "flex", justifyContent: "center" }}>
       <Card style={{ width: "30rem" }}>
-        <Card.Header className="align-right">{formatCurrency(product.price)}</Card.Header>
         <Card.Title className="text-center">{product.title}</Card.Title>
-        <Card.Img src={product.img} alt={product.title} />
+        <Card.Header className="align-right">{formatCurrency(product.price)}</Card.Header>
+        <Card.Img src={product.img} alt={product.title} width="100%" />
         <Card.Body>
           <Card.Subtitle className="mb-2 text-muted">Categoría: {product.categoryId}</Card.Subtitle>
           <Card.Text>{product.description}</Card.Text>

@@ -6,4 +6,4 @@ export { SectionIdeas } from './SectionIdeas'
 export { ShopDetails } from './ShopDetails'
 export { ModalSearch } from './ModalSearch'
 export { ModalShoppingCart } from './ModalShoppingCart'
-
+export { Pagination } from './Pagination'
