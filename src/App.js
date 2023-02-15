@@ -1,7 +1,7 @@
 import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
-import { Header, Footer, ModalSearch } from "./components";
+import { Header, Footer, ModalSearch, ModalShoppingCart } from "./components";
 import {
   FaqPage,
   GuiaTalles,

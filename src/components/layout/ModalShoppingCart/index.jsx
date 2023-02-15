@@ -4,12 +4,14 @@ import { useShoppingCart } from "../../../context/ShoppingCartContext";
 import { formatCurrency } from "../../../utilities";
 import { ItemCart, Spinner } from "../../../components"
 import { productsService } from "../../../services/Products";
+import { Link } from "react-router-dom"
 
 const ModalShoppingCart = ({ isOpen }) => {
   const { closeCart, cartItems } = useShoppingCart()
   const [total, setTotal] = useState(0)
   const [products, setProducts] = useState([])
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true)
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,10 +24,6 @@ const ModalShoppingCart = ({ isOpen }) => {
     fetchData();
   }, [cartItems]);
 
-  const handleCheckout = () => {
-    alert(`De acá vamos al checkout con un total de: ${total}`);
-  };
-
   const renderCart = () => (
     <Offcanvas.Body>
       <Stack gap={3}>
@@ -35,8 +33,8 @@ const ModalShoppingCart = ({ isOpen }) => {
         <div className="ms-auto fw-bold fs-5">
           Total {formatCurrency(total)}
         </div>
+        <Button href="/checkout" variant="dark">Checkout</Button>  
       </Stack>
-      <Button onClick={handleCheckout}>Checkout</Button>
     </Offcanvas.Body>
   );
 

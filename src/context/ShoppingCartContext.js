@@ -18,6 +18,8 @@ export const ShoppingCartProvider = ({ children }) => {
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
+  const clearCart = () => setCartItems("shopping-cart", [])
+
   const getItemQuantity = (id) => {
     return (
       cartItems.find((item) => item.id === id) &&
@@ -73,6 +75,7 @@ export const ShoppingCartProvider = ({ children }) => {
         removeFromCart,
         openCart,
         closeCart,
+        clearCart,
         cartItems,
         cartQuantity,
       }}

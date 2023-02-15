@@ -1,16 +1,42 @@
 import { Link } from "react-router-dom";
 import { ItemCart, Spinner } from "../../components"
-import { Container, Row, ListGroup, Col } from "react-bootstrap"
+import { Container, Row, ListGroup, Col, Button, Stack } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import { productsService } from "../../services/Products"
+import { useShoppingCart } from "../../context/ShoppingCartContext";
+import { formatCurrency } from "../../utilities";
 
 const ShoppingCart = () => {
-  const [isLoading, setisLoading] = useState(true);
+  const { cartItems } = useShoppingCart()
+  const [total, setTotal] = useState(0)
   const [products, setProducts] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
 
   useEffect(() => {
-    productsService.getAll().then(data => setProducts(data)).then(_ => setisLoading(false))
-  }, [])
+    const fetchData = async () => {
+      const data = await productsService.getAll();
+      setProducts(data);
+      setIsLoading(false);
+      setTotal(productsService.getTotal(data, cartItems));
+    };
+
+    fetchData();
+  }, [cartItems]);
+
+  const renderCart = () => (
+    <Row>
+      <Stack gap={3}>
+        {cartItems.map((cartItem) => (
+          <ItemCart key={cartItem.id} {...cartItem} />
+        ))}
+        <div className="ms-auto fw-bold fs-5">
+          Total {formatCurrency(total)}
+        </div>
+      </Stack>
+    </Row>
+  );
+
   return (
     <Container className="my-5">
       <Row className="lh-fixed fs-lg">
@@ -18,20 +44,8 @@ const ShoppingCart = () => {
           <h2>Su carrito </h2>
         </Col>
       </Row>
-      {!isLoading ?
-        <>
-          <ListGroup className="list-group-lg list-group-flush">
-            <ItemCart product={products[4]} />
-            <ItemCart product={products[2]} />
-            <ItemCart product={products[3]} />
-          </ListGroup>
-        </>
-        : <Spinner />}
-
-      <Row className="justify-between lh-fixed fs-sm bg-light mt-auto">
-        <Col xs={6}><strong>Subtotal</strong></Col>
-        <Col xs={6} className="text-right"><h3>$00.00</h3></Col>
-      </Row>
+      {isLoading && <Spinner />}
+      {!isLoading && renderCart()}
 
       <Row className="mt-3">
         <Col xs={12}>
