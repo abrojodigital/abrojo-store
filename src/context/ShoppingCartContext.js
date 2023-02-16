@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { ModalShoppingCart } from "../components";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { productsService } from "../services"
 
 const ShoppingCartContext = createContext({});
 
@@ -66,6 +67,12 @@ export const ShoppingCartProvider = ({ children }) => {
     });
   }
 
+  const getTotalCart = async ( cartItems) => {
+    const products = await productsService.getAll();
+    const total = cartItems.reduce((total, cartItem) => total + (products.find(product => product.id === cartItem.id)?.price || 0) * cartItem.quantity, 0)
+    return total
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -76,6 +83,7 @@ export const ShoppingCartProvider = ({ children }) => {
         openCart,
         closeCart,
         clearCart,
+        getTotalCart,
         cartItems,
         cartQuantity,
       }}
