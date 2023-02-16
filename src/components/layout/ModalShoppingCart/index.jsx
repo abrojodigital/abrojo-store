@@ -3,7 +3,6 @@ import { Button, Offcanvas, Stack } from "react-bootstrap"
 import { useShoppingCart } from "../../../context/ShoppingCartContext";
 import { formatCurrency } from "../../../utilities";
 import { ItemCart, Spinner } from "../../../components"
-import { productsService } from "../../../services/Products";
 
 const ModalShoppingCart = ({ isOpen }) => {
   const { closeCart, cartItems, getTotalCart } = useShoppingCart()

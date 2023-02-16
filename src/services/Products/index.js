@@ -33,19 +33,9 @@ const getAll = async () => {
   return products
 }
 
-const getTotal = (products, cartItems) => cartItems.reduce(
-  (total, cartItem) =>
-    total +
-    (
-      products.find(product => product.id === cartItem.id)?.price || 0
-    ) *
-    cartItem.quantity,
-  0
-)
-
 const updateStock = async (id, payload) => {
   const productDoc = doc(db, "products", id)
   updateDoc( productDoc, payload )
 }
 
-export const productsService = { getAll, get, getByCategory, getTotal, updateStock }
+export const productsService = { getAll, get, getByCategory, updateStock }

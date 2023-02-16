@@ -6,7 +6,7 @@ import { formatCurrency } from "../../utilities";
 import { ItemCart } from "../../components";
 
 const Checkout = () => {
-  const { cartItems, clearCart } = useShoppingCart();
+  const { cartItems, getTotalCart, clearCart } = useShoppingCart();
   const [total, setTotal] = useState(0)
   const [buyerInfo, setBuyerInfo] = useState({
     name: "",
@@ -94,7 +94,7 @@ const Checkout = () => {
     const fetchData = async () => {
       const data = await productsService.getAll();
       setProducts(data);
-      setTotal(productsService.getTotal(data, cartItems));
+      getTotalCart(cartItems).then (data => setTotal(data))
     };
 
     fetchData();
