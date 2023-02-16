@@ -6,14 +6,21 @@ import { ItemCart, Spinner } from "../../../components"
 import { productsService } from "../../../services/Products";
 
 const ModalShoppingCart = ({ isOpen }) => {
-  const { closeCart, cartItems, getTotalCart } = useShoppingCart()
+  const { closeCart, cartItems } = useShoppingCart()
   const [total, setTotal] = useState(0)
+  const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
 
   useEffect(() => {
+    const fetchData = async () => {
+      const data = await productsService.getAll();
+      setProducts(data);
       setIsLoading(false);
-      getTotalCart(cartItems).then (data => setTotal(data))
+      setTotal(productsService.getTotal(data, cartItems));
+    };
+
+    fetchData();
   }, [cartItems]);
 
   const renderCart = () => (

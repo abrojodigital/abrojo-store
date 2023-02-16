@@ -1,28 +1,21 @@
 import { Link } from "react-router-dom";
 import { ItemCart, Spinner } from "../../components"
-import { Container, Row, ListGroup, Col, Button, Stack } from "react-bootstrap"
+import { Container, Row, Col, Stack } from "react-bootstrap"
 import { useState, useEffect } from "react"
-import { productsService } from "../../services/Products"
 import { useShoppingCart } from "../../context/ShoppingCartContext";
 import { formatCurrency } from "../../utilities";
 
 const ShoppingCart = () => {
-  const { cartItems } = useShoppingCart()
+  const { cartItems, getTotalCart  } = useShoppingCart()
   const [total, setTotal] = useState(0)
-  const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await productsService.getAll();
-      setProducts(data);
-      setIsLoading(false);
-      setTotal(productsService.getTotal(data, cartItems));
-    };
+    setIsLoading(false);
+    getTotalCart(cartItems).then (data => setTotal(data))
+}, [cartItems]);
 
-    fetchData();
-  }, [cartItems]);
 
   const renderCart = () => (
     <Row>

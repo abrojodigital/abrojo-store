@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { ItemListContainer, Spinner } from "../../components"
 import { Container, Row, Col, Form } from 'react-bootstrap'
-import { useParams, useNavigate, useSearchParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { productsService } from "../../services/Products"
 
 const ListProducts = () => {
@@ -9,7 +9,7 @@ const ListProducts = () => {
   const [isLoading, setisLoading] = useState(true)
   const [error, setError] = useState(null)
   const [products, setProducts] = useState([])
-  const [value, setValue] = useState(catId!== undefined ? catId : "todas")
+  const [value, setValue] = useState(catId !== undefined ? catId : "todas")
 
   const navigate = useNavigate()
   // const [search, setSearch] = useSearchParams() // ya lo usaré
@@ -34,6 +34,14 @@ const ListProducts = () => {
     fetchData();
   }, [value]);
 
+  if (error) {
+    return (
+      <Container className="my-5">
+        <h3>Hubo un error al intentar cargar los artículos</h3>
+        <p>{error}</p>
+      </Container>
+    )
+  }
 
   return (
     <Container className="my-5">

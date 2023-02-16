@@ -21,13 +21,10 @@ const Checkout = () => {
   const [stockError, setStockError] = useState("")
   const [idPedido, setIdPedido] = useState("")
 
-  const handleInputChange = (event) => {
-    setBuyerInfo({
-      ...buyerInfo,
-      [event.target.name]: event.target.value,
-    });
-  };
-
+  const handleInputChange = ({ target: { name, value } }) => {
+    setBuyerInfo((prev) => ({ ...prev, [name]: value }))
+  }
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
@@ -105,7 +102,7 @@ const Checkout = () => {
 
   if (formSubmitted) {
     return (
-      <Container className="my-3 text-center">
+      <Container className="my-3 text-center w-75">
         <h1>¡Gracias por tu compra!</h1>
         <p>
           Hemos recibido tu pedido con el ID: <span className="h5">{idPedido}</span>.
@@ -117,7 +114,7 @@ const Checkout = () => {
 
   if (stockError !== "") {
     return (
-      <Container className="my-3 text-center">
+      <Container className="my-3 text-center w-75">
         <h1>Faltante de stock</h1>
         <p>
           Lo lamentamos mucho. {stockError}.
