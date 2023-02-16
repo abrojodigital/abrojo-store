@@ -18,7 +18,7 @@ export const ShoppingCartProvider = ({ children }) => {
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
-  const clearCart = () => setCartItems("shopping-cart", [])
+  const clearCart = () => setCartItems([]);
 
   const getItemQuantity = (id) => {
     return (
