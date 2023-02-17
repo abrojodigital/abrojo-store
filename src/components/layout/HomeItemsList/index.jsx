@@ -28,13 +28,13 @@ const HomeItemsList = () => {
         <Spinner />
       ) : (
         <>
-        <Pagination
-            itemsPerPage={ITEMS_PER_PAGE}
-            totalItems={products.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
           <Container className="py-12">
+            <Pagination
+              itemsPerPage={ITEMS_PER_PAGE}
+              totalItems={products.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
             <Row>
               {currentItems.map((product, index) => (
                 <Col sm={4} key={index}>
@@ -48,13 +48,13 @@ const HomeItemsList = () => {
                 </Col>
               ))}
             </Row>
+            <Pagination
+              itemsPerPage={ITEMS_PER_PAGE}
+              totalItems={products.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
           </Container>
-          <Pagination
-            itemsPerPage={ITEMS_PER_PAGE}
-            totalItems={products.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
         </>
       )}
     </div>

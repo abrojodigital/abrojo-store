@@ -8,8 +8,8 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
   }
 
   return (
-    <div className="d-flex justify-content-center mt-4">
-      <BootstrapPagination>
+    <div className="d-flex justify-content-center m-4">
+      <BootstrapPagination size="lg">
         {pageNumbers.map(number => (
           <BootstrapPagination.Item
             key={number}
