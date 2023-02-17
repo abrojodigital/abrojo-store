@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { ModalShoppingCart } from "../components";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useLocalStorage } from "../hooks/";
 import { productsService } from "../services"
 
 const ShoppingCartContext = createContext({});
