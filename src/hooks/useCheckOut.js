@@ -12,6 +12,7 @@ const useCheckOut = ({ buyerInfo }) => {
   const [formError, setFormError] = useState(false)
   const [stockError, setStockError] = useState("")
   const [idPedido, setIdPedido] = useState("")
+  const [ order, setOrder ] = useState({})
 
   // Validamos que haya suficiente stock para todos los productos en el carrito
   const validateStock = (productsMap) => {
@@ -56,13 +57,13 @@ const useCheckOut = ({ buyerInfo }) => {
       updateStock()
 
       // Enviamos los datos del comprador y del carrito a Firestore
-      const idPedido = await ordersService.addOrder({
-        buyer: buyerInfo,
-        items,
-        total,
-        date: new Date(),
-      })
+      const pedido = {buyer: buyerInfo, items, total, date: new Date(),
+      }
+      setOrder(pedido)
+
+      const idPedido = await ordersService.addOrder({ pedido })
       setIdPedido(idPedido)
+
       // Limpiamos el carrito
       clearCart()
 
@@ -94,6 +95,7 @@ const useCheckOut = ({ buyerInfo }) => {
   }, [cartItems])
 
   return {
+    order,
     total,
     buyerInfo,
     isSubmitting,

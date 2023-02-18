@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Form, Button, Container, Row, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../../context/ShoppingCartContext";
 import { formatCurrency } from "../../utilities";
-import { ItemCart } from "../../components";
-import {useCheckOut} from "../../hooks";
+import { ItemCart, MyDocument } from "../../components";
+import { useCheckOut } from "../../hooks";
+import { PDFDownloadLink } from '@react-pdf/renderer';
 
 const Checkout = () => {
   const { cartItems } = useShoppingCart();
@@ -14,6 +15,7 @@ const Checkout = () => {
     address: "",
   });
   const {
+    order,
     total,
     isSubmitting,
     formSubmitted,
@@ -31,6 +33,12 @@ const Checkout = () => {
           Hemos recibido tu pedido con el ID: <span className="h5">{idPedido}</span>.
         </p>
         <p>Guarda este ID para realizar el seguimiento de tu compra.</p>
+        <PDFDownloadLink
+          document={<MyDocument idPedido={idPedido} order = { order } />}
+          fileName={`pedido-${idPedido}.pdf`}
+        >
+          <Button className="btn-dark">Descargar formulario de pedido</Button>
+        </PDFDownloadLink>
       </Container>
     );
   }

@@ -1,4 +1,4 @@
-export { ItemListContainer, NavBar, Spinner, ItemCart } from './common'
+export { ItemListContainer, NavBar, Spinner, ItemCart, MyDocument } from './common'
 export { Footer } from './Footer'
 export { Header } from './Header'
 export { Banner, BannerOfertas, HomeItemsList, ItemDetailContainer, ModalSearch, ModalShoppingCart, ShopDetails, SectionIdeas, Pagination } from './layout'
