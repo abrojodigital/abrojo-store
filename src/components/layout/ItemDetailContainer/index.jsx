@@ -23,7 +23,7 @@ const ItemDetailContainer = ({ id }) => {
       .finally(() => setIsLoading(false))
   }, [id]);
 
-  const quantity = getItemQuantity(product.id);
+  const quantity = getItemQuantity(product.id, selectedSize);
   const isInCart = quantity > 0;
 
   const handleSizeChange = (event) => {
@@ -40,16 +40,17 @@ const ItemDetailContainer = ({ id }) => {
             <Card.Title>{product.title}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{formatCurrency(product.price)}</Card.Subtitle>
             <Card.Text>{product.description}</Card.Text>
+            <div className="mt-3 mb-3">
+              <Form.Label>Talla:</Form.Label>
+              <Form.Select value={selectedSize} onChange={handleSizeChange}>
+                <option value={null}>Seleccionar talla</option>
+                {Object.keys(product.stockBySize).map(size => (
+                  <option key={size} value={size} disabled={product.stockBySize[size] === 0}>{size}</option>
+                ))}
+              </Form.Select>
+            </div>
             <div className="d-flex justify-content-between align-items-center">
-              <div>
-                <Form.Label>Talla:</Form.Label>
-                <Form.Select value={selectedSize} onChange={handleSizeChange}>
-                  <option value={null}>Seleccionar talla</option>
-                  {Object.keys(product.stockBySize).map(size => (
-                    <option key={size} value={size} disabled={product.stockBySize[size] === 0}>{size}</option>
-                  ))}
-                </Form.Select>
-              </div>
+
               <Button
                 variant={isInCart ? "outline-secondary" : "secondary"}
                 onClick={() => increaseCartQuantity(product.id, selectedSize)}

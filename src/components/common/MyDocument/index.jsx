@@ -31,7 +31,7 @@ const MyDocument = ({ idPedido, order} ) => {
           <View>
             {order.items.map((cartItem) => (
               <Text key={cartItem.id} style={styles.item}>
-                {cartItem.quantity} x {cartItem.title}: {formatCurrency(cartItem.price)}
+                {cartItem.quantity} x {cartItem.title} - talle {cartItem.size}: {formatCurrency(cartItem.price)}
               </Text>
             ))}
           </View>

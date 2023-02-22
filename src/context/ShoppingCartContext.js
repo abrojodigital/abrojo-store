@@ -78,8 +78,8 @@ export const ShoppingCartProvider = ({ children }) => {
       if (!product) {
         return total;
       }
-      const price = product.prices.find((price) => price.size === cartItem.size)?.price || product.price;
-      return total + price * cartItem.quantity;
+
+      return total + product.price * cartItem.quantity;
     }, 0);
     return total;
   }
