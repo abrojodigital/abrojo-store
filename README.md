@@ -3,8 +3,6 @@
 
 ## E-Commerce en React - Bersier Pablo Martín
 
-Este proyecto es el avance del trabajo final de la cursada. Por ahora, la primera entrega.
+Este proyecto es el trabajo final de la cursada del curso de React de Coderhouse.
 
-El proyecto está basado en una plantilla creada con anterioridad utilizando Bootstrap.
-
-Los datos están hardcodeados en un archivo json.
+El proyecto utiliza React-bootstrap para manejar los estilos gráficos y Firebase/Firestore para administrar los datos de Productos y Pedidos.
