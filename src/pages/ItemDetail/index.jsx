@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
-import { Container, Card, Button } from "react-bootstrap"
+import { Container, Card, Button, Form } from "react-bootstrap"
 import { useParams } from "react-router-dom"
 import { useShoppingCart } from "../../context/ShoppingCartContext"
 import { formatCurrency } from "../../utilities"
 import { productsService } from '../../services/Products'
+import { Spinner } from "../../components"
 
 const ItemDetail = () => {
   const {
@@ -13,71 +14,69 @@ const ItemDetail = () => {
     removeFromCart,
   } = useShoppingCart();
 
-  const [product, setProduct] = useState({});
-  const { id } = useParams();
+  const [product, setProduct] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
+  const [selectedSize, setSelectedSize] = useState(null)
+
+  const { id } = useParams()
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await productsService.get(id);
-        setProduct(data);
-      } catch (error) {
-        console.error("Error trayendo el producto:", error);
-      }
-    };
-    fetchData();
-  }, [id]);
+    productsService.get(id)
+      .then(data => setProduct(data))
+      .finally(() => setIsLoading(false))
+  }, [id])
 
-  const quantity = getItemQuantity(product.id)
+  const quantity = getItemQuantity(product.id, selectedSize);
+  const isInCart = quantity > 0;
 
+  const handleSizeChange = (event) => {
+    setSelectedSize(event.target.value);
+  }
 
   return (
-    <Container className="my-5" style={{ display: "flex", justifyContent: "center" }}>
-      <Card style={{ width: "30rem" }}>
-        <Card.Title className="text-center">{product.title}</Card.Title>
-        <Card.Header className="align-right">{formatCurrency(product.price)}</Card.Header>
-        <Card.Img src={product.img} alt={product.title} width="100%" />
-        <Card.Body>
-          <Card.Subtitle className="mb-2 text-muted">Categoría: {product.categoryId}</Card.Subtitle>
-          <Card.Text>{product.description}</Card.Text>
-          <div className="mt-auto">
-          {quantity === 0 ? (
-            <Button
-              variant="secondary"
-              className="w-100"
-              onClick={() => increaseCartQuantity(product.id)}
-            >
-              <svg className="mb-1" fill="white" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" /></svg> Agregar al Carrito
-            </Button>
-          ) : (
-            <div
-              className="d-flex align-items-center flex-column"
-              style={{ gap: "0.5rem" }}
-            >
-              <div
-                className="d-flex align-items-cetner justify-content-center"
-                style={{ gap: "0.5rem" }}
-              >
-                <Button variant="outline-dark" onClick={() => decreaseCartQuantity(product.id)}>-</Button>
-                <div>
-                  <span className="fs-3">{quantity}</span>
-                  En el carrito
-                </div>
-                <Button variant="outline-dark" onClick={() => increaseCartQuantity(product.id)}>+</Button>
+    <>
+      {isLoading && <Spinner animation="border" />}
+      {!isLoading && (
+        <Container className="my-5" style={{ display: "flex", justifyContent: "center" }}>
+          <Card style={{ width: "30rem" }}>
+            <Card.Title className="text-center">{product.title}</Card.Title>
+            <Card.Header className="align-right">{formatCurrency(product.price)}</Card.Header>
+            <Card.Img src={product.img} alt={product.title} width="100%" />
+            <Card.Body>
+              <Card.Subtitle className="mb-2 text-muted">Categoría: {product.categoryId}</Card.Subtitle>
+              <Card.Text>{product.description}</Card.Text>
+              <div className="mt-3 mb-3">
+                <Form.Label>Talla:</Form.Label>
+                <Form.Select value={selectedSize} onChange={handleSizeChange}>
+                  <option value={null}>Seleccionar talla</option>
+                  {Object.keys(product.stockBySize).map(size => (
+                    <option key={size} value={size} disabled={product.stockBySize[size] === 0}>{size}</option>
+                  ))}
+                </Form.Select>
               </div>
-              <Button
-                variant="dark"
-                size="sm"
-                onClick={() => removeFromCart(product.id)}
-              >
-                Eliminar
-              </Button>
-            </div>
-          )}
-        </div>
-        </Card.Body>
-      </Card>
-    </Container>
+              <div className="d-flex justify-content-between align-items-center">
+
+                <Button
+                  variant={isInCart ? "outline-secondary" : "secondary"}
+                  onClick={() => increaseCartQuantity(product.id, selectedSize)}
+                  disabled={!selectedSize || product.stockBySize[selectedSize] === 0}
+                >
+                  {isInCart ? `Agregar otro (${quantity})` : "Agregar al Carrito"}
+                </Button>
+                {isInCart && (
+                  <div className="d-flex align-items-center">
+                    <Button variant="outline-dark" onClick={() => decreaseCartQuantity(product.id, selectedSize)}>-</Button>
+                    <div className="mx-2">{quantity}</div>
+                    <Button variant="outline-dark" onClick={() => increaseCartQuantity(product.id, selectedSize)}>+</Button>
+                    <Button variant="outline-danger" className="ms-2" onClick={() => removeFromCart(product.id, selectedSize)}>Eliminar</Button>
+                  </div>
+                )}
+              </div>
+            </Card.Body>
+          </Card>
+        </Container>
+      )}
+    </>
   );
 };
 
