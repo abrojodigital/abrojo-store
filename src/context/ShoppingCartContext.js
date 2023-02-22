@@ -59,16 +59,21 @@ export const ShoppingCartProvider = ({ children }) => {
     });
   }
 
+  // const removeFromCart = (id, size) => {
+  //   setCartItems((currItems) => {
+  //     return currItems.map((item) => {
+  //       if (item.id === id && item.size === size) {
+  //         return { ...item, quantity: item.quantity - 1 };
+  //       } else {
+  //         return item;
+  //       }
+  //     }).filter((item) => item.quantity > 0);
+  //   });
+  // };
   const removeFromCart = (id, size) => {
-    setCartItems((currItems) => {
-      return currItems.map((item) => {
-        if (item.id === id && item.size === size) {
-          return { ...item, quantity: item.quantity - 1 };
-        } else {
-          return item;
-        }
-      }).filter((item) => item.quantity > 0);
-    });
+    setCartItems((currItems) =>
+      currItems.filter((item) => !(item.id === id && item.size === size || item.quantity <= 0))
+    );
   };
 
   const getTotalCart = async (cartItems) => {
