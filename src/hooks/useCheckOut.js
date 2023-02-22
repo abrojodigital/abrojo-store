@@ -18,8 +18,9 @@ const useCheckOut = ({ buyerInfo }) => {
   const validateStock = (productsMap) => {
     for (const cartItem of cartItems) {
       const product = productsMap[cartItem.id]
-      if (product.stock < cartItem.quantity) {
-        throw new Error(`No hay suficiente stock para el producto ${product.title}`)
+      const size = cartItem.size
+      if (!product.stockBySize || product.stockBySize[size] < cartItem.quantity) {
+        throw new Error(`No hay suficiente stock para el producto ${product.title} en talla ${size}`)
       }
     }
   }
@@ -27,52 +28,62 @@ const useCheckOut = ({ buyerInfo }) => {
   // Actualizamos el stock de los productos en Firestore
   const updateStock = async () => {
     const updatedProducts = products.map(product => {
-      const cartItem = cartItems.find(item => item.id === product.id)
+      const cartItem = cartItems.find(item => item.id === product.id && item.size === product.size)
       if (cartItem) {
-        return { ...product, stock: product.stock - cartItem.quantity }
+        const newStockBySize = { ...product.stockBySize }
+        newStockBySize[cartItem.size] -= cartItem.quantity
+        return { ...product, stockBySize: newStockBySize }
       }
       return product
     })
     for (const product of updatedProducts) {
-      await productsService.updateStock(product.id, { stock: product.stock })
+      await productsService.updateStock(product.id, { stockBySize: product.stockBySize })
     }
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     setIsSubmitting(true)
-
+  
     const productsMap = products.reduce((map, product) => {
       map[product.id] = product
       return map
     }, {})
-
-    const items = cartItems.map(({ id, quantity }) => {
-      const { title, price } = productsMap[id]
-      return { id, title, price, quantity }
+  
+    const items = cartItems.map(({ id, quantity, size }) => {
+      const product = productsMap[id]
+      const { title, price } = product
+      const sizeIndex = product.sizes.indexOf(size)
+      const stock = product.stock[sizeIndex]
+      if (stock < quantity) {
+        throw new Error(`No hay suficiente stock en talla ${size} para el producto ${title}`)
+      }
+      const updatedStock = product.stock.slice()
+      updatedStock[sizeIndex] = stock - quantity
+      const updatedProduct = { ...product, stock: updatedStock }
+      return { id, title, price, quantity, size, product: updatedProduct }
     })
-
+  
     try {
       validateStock(productsMap)
       updateStock()
-
+  
       // Enviamos los datos del comprador y del carrito a Firestore
-      const pedido = {buyer: buyerInfo, items, total, date: new Date(),
-      }
+      const pedido = { buyer: buyerInfo, items, total, date: new Date() }
       setOrder(pedido)
-
+  
       const idPedido = await ordersService.addOrder({ pedido })
       setIdPedido(idPedido)
-
+  
       // Limpiamos el carrito
       clearCart()
-
+  
       // Marcamos el formulario como enviado
       setFormSubmitted(true)
     } catch (error) {
       console.error("Error al enviar el pedido a Firestore:", error.message)
       // Manejo de errores específicos
-      if (error.message.startsWith("No hay suficiente stock")) {
+      if (error.message.startsWith("No hay suficiente stock en talla")) {
         // Mostramos un mensaje de error específico en el formulario
         setStockError(error.message)
       } else {
@@ -83,6 +94,7 @@ const useCheckOut = ({ buyerInfo }) => {
       setIsSubmitting(false)
     }
   }
+  
 
   useEffect(() => {
     const fetchData = async () => {

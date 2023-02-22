@@ -11,20 +11,25 @@ const ModalShoppingCart = ({ isOpen }) => {
 
 
   useEffect(() => {
-      setIsLoading(false);
-      getTotalCart(cartItems).then (data => setTotal(data))
+    setIsLoading(false);
+    getTotalCart(cartItems).then(data => setTotal(data))
   }, [cartItems]);
 
   const renderCart = () => (
     <Offcanvas.Body>
       <Stack gap={3}>
         {cartItems.map((cartItem) => (
-          <ItemCart key={cartItem.id} {...cartItem} />
+          <ItemCart
+            key={`${cartItem.id}-${cartItem.size}`}
+            id={cartItem.id}
+            size={cartItem.size}
+            quantity={cartItem.quantity}
+          />
         ))}
         <div className="ms-auto fw-bold fs-5">
           Total {formatCurrency(total)}
         </div>
-        <Button href="/checkout" variant="dark">Checkout</Button>  
+        <Button href="/checkout" variant="dark">Checkout</Button>
       </Stack>
     </Offcanvas.Body>
   );

@@ -21,56 +21,67 @@ export const ShoppingCartProvider = ({ children }) => {
 
   const clearCart = () => setCartItems([]);
 
-  const getItemQuantity = (id) => {
-    return (
-      cartItems.find((item) => item.id === id) &&
-      cartItems.find((item) => item.id === id).quantity
-    ) || 0;
+  const getItemQuantity = (id, size) => {
+    const item = cartItems.find((item) => item.id === id && item.size === size);
+    return item ? item.quantity : 0;
   }
-  const increaseCartQuantity = (id) => {
+
+  const increaseCartQuantity = (id, size) => {
     setCartItems((currItems) => {
-      if (!currItems.find((item) => item.id === id)) {
-        return [...currItems, { id, quantity: 1 }];
+      const itemIndex = currItems.findIndex((item) => item.id === id && item.size === size);
+
+      if (itemIndex === -1) {
+        return [...currItems, { id, quantity: 1, size }];
       } else {
-        return currItems.map((item) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity + 1 };
-          } else {
-            return item;
-          }
-        });
+        const updatedItems = [...currItems];
+        updatedItems[itemIndex].quantity++;
+        return updatedItems;
       }
     });
   }
 
-  const decreaseCartQuantity = (id) => {
+  const decreaseCartQuantity = (id, size) => {
     setCartItems((currItems) => {
-      if (
-        currItems.find((item) => item.id === id) &&
-        currItems.find((item) => item.id === id).quantity === 1
-      ) {
-        return currItems.filter((item) => item.id !== id);
+      const itemIndex = currItems.findIndex((item) => item.id === id && item.size === size);
+
+      if (itemIndex === -1) {
+        return currItems;
       } else {
-        return currItems.map((item) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity - 1 };
-          } else {
-            return item;
-          }
-        });
+        const updatedItems = [...currItems];
+        updatedItems[itemIndex].quantity--;
+
+        if (updatedItems[itemIndex].quantity === 0) {
+          updatedItems.splice(itemIndex, 1);
+        }
+
+        return updatedItems;
       }
     });
   }
-  const removeFromCart = (id) => {
-    setCartItems((currItems) => {
-      return currItems.filter((item) => item.id !== id);
-    });
-  }
 
-  const getTotalCart = async ( cartItems) => {
+  const removeFromCart = (id, size) => {
+    setCartItems((currItems) => {
+      return currItems.map((item) => {
+        if (item.id === id && item.size === size) {
+          return { ...item, quantity: item.quantity - 1 };
+        } else {
+          return item;
+        }
+      }).filter((item) => item.quantity > 0);
+    });
+  };
+
+  const getTotalCart = async (cartItems) => {
     const products = await productsService.getAll();
-    const total = cartItems.reduce((total, cartItem) => total + (products.find(product => product.id === cartItem.id)?.price || 0) * cartItem.quantity, 0)
-    return total
+    const total = cartItems.reduce((total, cartItem) => {
+      const product = products.find((product) => product.id === cartItem.id);
+      if (!product) {
+        return total;
+      }
+      const price = product.prices.find((price) => price.size === cartItem.size)?.price || product.price;
+      return total + price * cartItem.quantity;
+    }, 0);
+    return total;
   }
 
   return (

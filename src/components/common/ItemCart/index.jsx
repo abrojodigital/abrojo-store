@@ -5,14 +5,16 @@ import { useShoppingCart } from "../../../context/ShoppingCartContext";
 import { productsService } from "../../../services/Products";
 import { formatCurrency } from "../../../utilities/formatCurrency";
 
-const ItemCart = ({ id, quantity }) => {
+const ItemCart = ({ id, size, quantity }) => {
   const { removeFromCart } = useShoppingCart();
   const [item, setItem] = useState({});
+  const [sizes, setSizes] = useState([]);
 
   useEffect(() => {
     const getItem = async () => {
       const data = await productsService.get(id);
       setItem(data);
+      setSizes(data.sizes);
     };
     getItem();
   }, [id]);
@@ -38,6 +40,11 @@ const ItemCart = ({ id, quantity }) => {
         <div className="text-muted" style={{ fontSize: "0.75rem" }}>
           {formatCurrency(item.price)}
         </div>
+        {sizes.map((s) => (
+          <div key={s.size} className="text-muted" style={{ fontSize: "0.75rem" }}>
+            {`${s.size}: ${s.stock} units`}
+          </div>
+        ))}
       </div>
       <div>{formatCurrency(item.price * quantity)}</div>
       <Button variant="outline-danger" size="sm" onClick={() => removeFromCart(item.id)}>
