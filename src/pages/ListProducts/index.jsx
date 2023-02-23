@@ -2,13 +2,15 @@ import { useState, useEffect } from "react"
 import { ItemListContainer, Spinner } from "../../components"
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { useParams, useNavigate } from "react-router-dom"
-import { productsService } from "../../services/Products"
+import { productsService, categoriesService } from "../../services"
 
 const ListProducts = () => {
   const { catId } = useParams()
   const [isLoading, setisLoading] = useState(true)
   const [error, setError] = useState(null)
   const [products, setProducts] = useState([])
+  const [categories, setCategories] = useState([])
+  const [isLoadingCats, setisLoadingCats] = useState(true)
   const [value, setValue] = useState(catId !== undefined ? catId : "todas")
 
   const navigate = useNavigate()
@@ -34,6 +36,17 @@ const ListProducts = () => {
     fetchData();
   }, [value]);
 
+  useEffect(() => {
+    categoriesService.getAll()
+      .then(data => {
+        data.unshift({id:"SOLOPARALAPOPU", name:"todas", description:"Todas las categorías"})
+        setCategories(data)
+      })
+      .then(_ => setisLoadingCats(false))
+    }, [])
+
+    console.log(categories)
+
   if (error) {
     return (
       <Container className="my-5">
@@ -45,26 +58,28 @@ const ListProducts = () => {
 
   return (
     <Container className="my-5">
-      <Form>
-        <Form.Group>
-          <h3>Categoría a filtrar</h3>
-          <Form.Control as="select"
-            value={value}
-            onChange={(e) => {
-              e.preventDefault()
-              setValue(e.target.value)
-            }}
-          >
-            <option value="todas">Todas las categorías</option>
-            <option value="camisas">Camisas</option>
-            <option value="remeras">Camisetas</option>
-            <option value="superior">Prenda Superior</option>
-            <option value="pantalones">Pantalones | Bermudas</option>
-            <option value="zapatos">Zapatos</option>
-          </Form.Control>
-        </Form.Group>
-      </Form>
-
+      {isLoadingCats ? <Spinner /> :
+        <Form>
+          <Form.Group>
+            <h3>Categoría a filtrar</h3>
+            <Form.Control as="select"
+              value={value}
+              onChange={(e) => {
+                e.preventDefault()
+                setValue(e.target.value)
+              }}
+            >
+            {
+              categories.map( (category) => {
+                return (
+                  <option value={category.name}>{category.description}</option>
+                )
+              })
+            }
+            </Form.Control>
+          </Form.Group>
+        </Form>
+      }
       <Container className="py-12">
         {isLoading ? <Spinner /> :
           <Row md={2} xs={1} lg={3} className="g-3">

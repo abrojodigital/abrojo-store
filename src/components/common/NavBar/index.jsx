@@ -1,58 +1,73 @@
 import { CartWidget } from "../../widgets"
+import { useState, useEffect } from "react"
+import { Spinner } from "../../../components"
 import { Container, Image, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
+import { categoriesService } from "../../../services"
 
 const NavBar = () => {
+  const [menuLinks, setMenuLinks] = useState()
+  const [isLoading, setisLoading] = useState(true)
+
+  useEffect(() => {
+    categoriesService.getAll()
+      .then(data => {
+        const links = data.map(({name, description}) => {
+          return {
+            description: description,
+            url: `/products/category/${name}`
+          }
+        })
+        setMenuLinks(links)
+        setisLoading(false)
+      })
+  }, [])
+
   return (
     <>
-      <Navbar bg="white" expand="lg" className="mb-3">
-        <Container>
-          {/* branding */}
-          <LinkContainer to="/">
-            <Navbar.Brand >
-              <Image
-                src="../../../assets/img/AbrojoStore.png"
-                width="130"
-                height="130"
-                className="d-inline-block align-top"
-                alt="Abrojo Store"
-              />
-            </Navbar.Brand>
-          </LinkContainer>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <Navbar bg="white" expand="lg" className="mb-3">
+          <Container>
+            {/* branding */}
+            <LinkContainer to="/">
+              <Navbar.Brand >
+                <Image
+                  src="../../../assets/img/AbrojoStore.png"
+                  width="130"
+                  height="130"
+                  className="d-inline-block align-top"
+                  alt="Abrojo Store"
+                />
+              </Navbar.Brand>
+            </LinkContainer>
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
 
-            <Nav className="me-auto">
-              <LinkContainer to="/historia"><Nav.Link>Nuestra Historia</Nav.Link></LinkContainer>
-              <LinkContainer to="/contact"><Nav.Link>Contáctenos</Nav.Link></LinkContainer>
-              <NavDropdown title="Categorías" id="collasible-nav-dropdown">
-                <LinkContainer to="/products/category/camisas">
-                  <NavDropdown.Item>Camisas</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to="/products/category/remeras">
-                  <NavDropdown.Item>Camisetas</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to="/products/category/superior">
-                  <NavDropdown.Item>Prenda superior</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to="/products/category/pantalones">
-                  <NavDropdown.Item>Pantalones | Bermudas</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to="/products/category/zapatos">
-                  <NavDropdown.Item>Zapatos</NavDropdown.Item>
-                </LinkContainer>
-                {/* <NavDropdown.Divider /> */}
-              </NavDropdown>
-            </Nav>
-            <Nav className="me-8" >
-              <CartWidget />
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+              <Nav className="me-auto">
+                <LinkContainer to="/historia"><Nav.Link>Nuestra Historia</Nav.Link></LinkContainer>
+                <LinkContainer to="/contact"><Nav.Link>Contáctenos</Nav.Link></LinkContainer>
+                <NavDropdown title="Categorías" id="collasible-nav-dropdown">
+                  {menuLinks.map(menuLink => {
+                    return (
+                      <LinkContainer to={menuLink.url}>
+                        <NavDropdown.Item>{menuLink.description}</NavDropdown.Item>
+                      </LinkContainer>
+                    )
+                  })}
+
+                </NavDropdown>
+              </Nav>
+              <Nav className="me-8" >
+                <CartWidget />
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      )}
     </>
-
   )
 }
 
