@@ -1,2 +1,2 @@
-export { db, auth } from "./firebase"
+export { db } from "./firebase"
 export { formatCurrency } from "./formatCurrency"
