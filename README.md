@@ -2,8 +2,7 @@
 
 ## E-Commerce en React - Bersier Pablo Martín
 
-<<<<<<< HEAD
-Este proyecto es el avance del trabajo final de la cursada. 
+Este proyecto es el avance del trabajo final de la cursada.
 
 El proyecto utiliza react-bootstrap como framework de estilos.
 
@@ -12,7 +11,6 @@ También se utiliza react-router-dom para manejar las rutas.
 A fines de ejemplo, el checkout permite generar un pdf de cada pedido, para lo cual se utiliza react-pdf
 
 Los datos están alojados en documentos de Firebase/Firestore. Los mismos son Categories, Products y Orders.
-
 
 ***Instalar***
 
@@ -23,8 +21,16 @@ react-bootrstrap
 react-router-bootstrap
 
 react-pdf
-=======
+=========
+
 Este proyecto es el trabajo final de la cursada del curso de React de Coderhouse.
 
 El proyecto utiliza React-bootstrap para manejar los estilos gráficos y Firebase/Firestore para administrar los datos de Productos y Pedidos.
+
 >>>>>>> 9f05b8fcf723bc6e89ec7680ba6b19ccd481bcec
+>>>>>>>
+>>>>>>
+>>>>>
+>>>>
+>>>
+>>
