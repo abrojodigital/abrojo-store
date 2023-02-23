@@ -12,6 +12,13 @@ A fines de ejemplo, el checkout permite generar un pdf de cada pedido, para lo c
 
 Los datos están alojados en documentos de Firebase/Firestore. Los mismos son Categories, Products y Orders.
 
-**Instalar**
 
-react-
+***Instalar***
+
+react-router-dom
+
+react-bootrstrap
+
+react-router-bootstrap
+
+react-pdf
