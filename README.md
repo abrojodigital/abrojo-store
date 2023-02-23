@@ -2,7 +2,7 @@
 
 ## E-Commerce en React - Bersier Pablo Martín
 
-[![Video resumen Abrojo-Store](https://img.youtube.com/vi/tqFvd7_1Op0/0.jpg)](https://www.youtube.com/watch?v=tqFvd7_1Op0)
+*Video resumen del funcionamiento de Abrojo-Store*****[![Video resumen Abrojo-Store](https://img.youtube.com/vi/tqFvd7_1Op0/0.jpg)](https://www.youtube.com/watch?v=tqFvd7_1Op0)
 
 Este proyecto es el trabajo final de la cursada.
 
