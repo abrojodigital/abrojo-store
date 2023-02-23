@@ -27,10 +27,9 @@ Este proyecto es el trabajo final de la cursada del curso de React de Coderhouse
 
 El proyecto utiliza React-bootstrap para manejar los estilos gráficos y Firebase/Firestore para administrar los datos de Productos y Pedidos.
 
->>>>>>> 9f05b8fcf723bc6e89ec7680ba6b19ccd481bcec
->>>>>>>
->>>>>>
->>>>>
->>>>
->>>
->>
+## Firebase / Firestore
+*** products *** Contiene los datos de los productos {id, categoryId, title, description, img, price, stockBySize {S, M, L, XL} }
+*** orders *** Contiene los datos de los pedidos {id, buyer: {name, phone, address, email}, items:{id, title, price, quantity, size}, date, total }
+*** categories *** Contiene los datos de las categorías {id, name, description }
+
+
