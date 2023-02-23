@@ -2,6 +2,10 @@
 
 ## E-Commerce en React - Bersier Pablo Martín
 
+[![Alt text]
+(https://img.youtube.com/vi/tqFvd7_1Op0/0.jpg)
+(https://www.youtube.com/watch?v=tqFvd7_1Op0)
+
 Este proyecto es el trabajo final de la cursada.
 
 El proyecto utiliza react-bootstrap como framework de estilos.
