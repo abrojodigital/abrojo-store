@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { ItemDetailContainer } from '../..'
-import Button from 'react-bootstrap/Button'
-import Offcanvas from 'react-bootstrap/Offcanvas'
-import { Card } from 'react-bootstrap'
+import {Button, Offcanvas, Card} from 'react-bootstrap'
 import { formatCurrency } from "../../../utilities"
 
 const ItemListContainer = ({ id, title, description, price, img, onClick }) => {
