@@ -10,12 +10,10 @@ También se utiliza react-router-dom para manejar las rutas.
 
 A fines de ejemplo, el checkout permite generar un pdf de cada pedido, para lo cual se utiliza react-pdf
 
-
 ***Es necesario instalar***
 
 * react-router-dom
 * react-bootrstrap
-
 * react-router-bootstrap
 * react-pdfreact-pdf
 
@@ -25,9 +23,7 @@ El proyecto utiliza React-bootstrap para manejar los estilos gráficos y Firebas
 
 ## Firebase / Firestore
 
-Los datos están alojados en documentos de Firebase/Firestore.
-
-###### products
+*Los datos están alojados en documentos de Firebase/Firestore.*###### products
 
 Contiene los datos de los productos
 
