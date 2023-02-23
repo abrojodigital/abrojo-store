@@ -103,7 +103,7 @@ const useCheckOut = ({ buyerInfo }) => {
     const fetchData = async () => {
       const data = await productsService.getAll()
       setProducts(data)
-      getTotalCart(cartItems).then(data => setTotal(data))
+      getTotalCart().then(data => setTotal(data))
     }
 
     fetchData()

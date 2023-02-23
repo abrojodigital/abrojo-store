@@ -76,7 +76,7 @@ export const ShoppingCartProvider = ({ children }) => {
     );
   };
 
-  const getTotalCart = async (cartItems) => {
+  const getTotalCart = async () => {
     const products = await productsService.getAll();
     const total = cartItems.reduce((total, cartItem) => {
       const product = products.find((product) => product.id === cartItem.id);

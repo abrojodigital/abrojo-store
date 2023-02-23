@@ -13,7 +13,7 @@ const ShoppingCart = () => {
 
   useEffect(() => {
     setIsLoading(false);
-    getTotalCart(cartItems).then (data => setTotal(data))
+    getTotalCart().then (data => setTotal(data))
 }, [cartItems]);
 
 
