@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "../../../context/AuthContext"
-import { Alert } from "../Alert"
-import { Container, Form, Button } from "react-bootstrap"
+import { Alert } from "../../../components"
+import { Button, Container, Form, Row } from "react-bootstrap"
 
 export function Register() {
   const { signup } = useAuth()
@@ -30,17 +30,12 @@ export function Register() {
     <Container className="my-3 w-50 align-items-center">
       {error && <Alert message={error} />}
 
-      <Form
-        onSubmit={handleSubmit}
-      >
+      <Form>
         <Form.Group className="mb-4">
-          <Form.Label
-            htmlFor="email"
-            className="block text-gray-700 text-sm font-bold mb-2"
-          >
+          <Form.Label>
             Email
           </Form.Label>
-          <Form.Control
+          <Form.Input
             type="email"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             placeholder="youremail@company.tld"
@@ -48,29 +43,30 @@ export function Register() {
         </Form.Group>
 
         <Form.Group className="mb-4">
-          <Form.Label
-            htmlFor="password"
-            className="block text-gray-700 text-sm font-bold mb-2"
-          >
-            Password
-          </Form.Label>
-          <Form.Control
+          <Form.Label>Password</Form.Label>
+          <Form.Input
             type="password"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             placeholder="*************"
           />
         </Form.Group>
-
-        <Button className="btn-dark w-25" type="submit">
-          Registrar
-        </Button>
+        <Form.Group>
+          <Button 
+            onClick={handleSubmit}
+            className="btn-dark w-25"
+          >
+          Registrarse
+          </Button>
+        </Form.Group>
       </Form>
-      <p className="my-4 text-sm flex justify-between px-3">
-        ¿Ya tienes una cuenta?
-        <Link to="/login" className="text-blue-700 hover:text-blue-900">
-          Login
-        </Link>
-      </p>
+      <Row>
+        <p className="my-4 text-sm flex justify-between px-3">
+          ¿Ya tienes una cuenta?
+          <Link to="/login" className="text-blue-700 hover:text-blue-900">
+            Login
+          </Link>
+        </p>
+      </Row>
     </Container>
   )
 }
