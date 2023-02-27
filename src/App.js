@@ -1,7 +1,7 @@
 import * as React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { ShoppingCartProvider } from "./context/ShoppingCartContext"
-import { Header, Footer, ModalSearch } from "./components"
+import { Header, Footer, ModalSearch, ProtectedRoute } from "./components"
 import {
   FaqPage,
   GuiaTalles,
@@ -16,8 +16,11 @@ import {
   ItemDetail
 } from "./pages"
 
+import { AuthProvider } from "./context/AuthContext"
+
 export default function App() {
   return (
+    <AuthProvider>
       <ShoppingCartProvider>
         <BrowserRouter>
           <Header />
@@ -25,7 +28,11 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<ShoppingCart />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/products" element={<ListProducts />} />
+            <Route path="/products" element={
+              <ProtectedRoute>
+                <ListProducts />
+              </ProtectedRoute>
+            } />
             <Route path="/item/:id" element={<ItemDetail />} />
             <Route path="/products/category/:catId" element={<ListProducts />} />
             <Route path="/faq" element={<FaqPage />} />
@@ -39,5 +46,6 @@ export default function App() {
           <Footer />
         </BrowserRouter>
       </ShoppingCartProvider>
+    </AuthProvider>
   )
 }

@@ -1,5 +1,8 @@
-export { NavBar } from './NavBar'
-export { ItemListContainer } from './ItemListContainer'
+export { NavBar } from "./NavBar"
+export { ItemListContainer } from "./ItemListContainer"
 export { ItemCart } from "./ItemCart"
-export { Spinner } from './Spinner'
-export { MyDocument } from './MyDocument'
+export { Spinner } from "./Spinner"
+export { MyDocument } from "./MyDocument"
+export { Alert } from "./Alert"
+export { Login } from "./Login"
+export { Register } from "./Register"

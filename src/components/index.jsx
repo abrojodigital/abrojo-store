@@ -1,5 +1,6 @@
-export { ItemListContainer, NavBar, Spinner, ItemCart, MyDocument } from './common'
-export { Footer } from './Footer'
-export { Header } from './Header'
-export { Banner, BannerOfertas, HomeItemsList, ItemDetailContainer, ModalSearch, ModalShoppingCart, ShopDetails, SectionIdeas, Pagination } from './layout'
-export { CartWidget, SearchWidget } from './widgets'
+export { ItemListContainer, NavBar, Spinner, ItemCart, MyDocument, Alert, Login, Register } from "./common"
+export { Footer } from "./Footer"
+export { Header } from "./Header"
+export { Banner, BannerOfertas, HomeItemsList, ItemDetailContainer, ModalSearch, ModalShoppingCart, ShopDetails, SectionIdeas, Pagination } from "./layout"
+export { CartWidget, SearchWidget } from "./widgets"
+export { ProtectedRoute } from "./ProtectedRoute"
