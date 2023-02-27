@@ -1,20 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import { ItemCart, Spinner } from "../../components"
 import { Container, Row, Col, Stack } from "react-bootstrap"
 import { useState, useEffect } from "react"
-import { useShoppingCart } from "../../context/ShoppingCartContext";
-import { formatCurrency } from "../../utilities";
+import { useShoppingCart } from "../../context/ShoppingCartContext"
+import { formatCurrency } from "../../utilities"
+import { useAuth } from "../../context/AuthContext"
 
 const ShoppingCart = () => {
-  const { cartItems, getTotalCart  } = useShoppingCart()
+  const { cartItems, getTotalCart } = useShoppingCart()
+  const { user } = useAuth()
   const [total, setTotal] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
 
-
   useEffect(() => {
-    setIsLoading(false);
-    getTotalCart().then (data => setTotal(data))
-}, [cartItems]);
+    setIsLoading(false)
+    getTotalCart().then(data => setTotal(data))
+  }, [cartItems])
 
 
   const renderCart = () => (
@@ -28,7 +29,7 @@ const ShoppingCart = () => {
         </div>
       </Stack>
     </Row>
-  );
+  )
 
   return (
     <Container className="my-5">
@@ -42,10 +43,15 @@ const ShoppingCart = () => {
 
       <Row className="mt-3">
         <Col xs={12}>
-        <Link className="btn w-100 btn-dark" to="/checkout">Continuar al Checkout</Link>
+          {
+            user ?
+              <Link className="btn w-100 btn-dark" to="/checkout">Continuar al Checkout</Link>
+              :
+              <Link className="btn w-100 btn-dark" to="/login">Login de Usuario</Link>
+          }
         </Col>
         <Col xs={12} className="mt-2">
-        <Link className="btn w-100 btn-outline-dark mt-2" to="/">Seguir comprando</Link>
+          <Link className="btn w-100 btn-outline-dark mt-2" to="/">Seguir comprando</Link>
         </Col>
       </Row>
     </Container>

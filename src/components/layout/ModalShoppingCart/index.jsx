@@ -1,19 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 import { Button, Offcanvas, Stack } from "react-bootstrap"
-import { useShoppingCart } from "../../../context/ShoppingCartContext";
-import { formatCurrency } from "../../../utilities";
+import { useShoppingCart } from "../../../context/ShoppingCartContext"
+import { formatCurrency } from "../../../utilities"
 import { ItemCart, Spinner } from "../../../components"
+import { useAuth } from "../../../context/AuthContext"
 
 const ModalShoppingCart = ({ isOpen }) => {
   const { closeCart, cartItems, getTotalCart } = useShoppingCart()
   const [total, setTotal] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
+  const { user } = useAuth()
 
 
   useEffect(() => {
-    setIsLoading(false);
+    setIsLoading(false)
     getTotalCart().then(data => setTotal(data))
-  }, [cartItems]);
+  }, [cartItems])
 
   const renderCart = () => (
     <Offcanvas.Body>
@@ -29,10 +31,14 @@ const ModalShoppingCart = ({ isOpen }) => {
         <div className="ms-auto fw-bold fs-5">
           Total {formatCurrency(total)}
         </div>
-        <Button href="/checkout" variant="dark">Checkout</Button>
+        { user ? 
+          <Button href="/checkout" variant="dark">Checkout</Button>
+          :
+          <Button href="/login" variant="dark">Login</Button>
+        }
       </Stack>
     </Offcanvas.Body>
-  );
+  )
 
   return (
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
@@ -42,7 +48,7 @@ const ModalShoppingCart = ({ isOpen }) => {
       {isLoading && <Spinner />}
       {!isLoading && renderCart()}
     </Offcanvas>
-  );
-};
+  )
+}
 
-export { ModalShoppingCart };
+export { ModalShoppingCart }
