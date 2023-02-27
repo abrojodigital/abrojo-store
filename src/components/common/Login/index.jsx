@@ -48,7 +48,7 @@ export function Login() {
   };
 
   return (
-    <Container className="my-3 w-75">
+    <Container className="my-3 w-50 align-items-center">
       {error && <Alert message={error} />}
 
       <Form onSubmit={handleSubmit}>
@@ -75,25 +75,25 @@ export function Login() {
           />
         </Form.Group>
         <Row>
-            <Button type="submit">
-              Iniciar Sesión
-            </Button>
-            <Button onClick={handleResetPassword}>
-              ¿Has olvidado tu contraseña?
-            </Button>
+          <Button className="btn-dark w-25" type="submit">
+            Iniciar Sesión
+          </Button>
+          <a className="my-4 text-sm flex justify-between px-3" href="#." onClick={handleResetPassword}>
+            ¿Has olvidado tu contraseña?
+          </a>
         </Row>
         <Row>
-          <Button onClick={handleGoogleSignin}>
+          <Button className="btn-dark w-25" onClick={handleGoogleSignin}>
             Google login
           </Button>
         </Row>
 
-      <p className="my-4 text-sm flex justify-between px-3">
-      ¿No tienes una cuenta?
-        <Link to="/register" className="text-blue-700 hover:text-blue-900">
-          Registro
-        </Link>
-      </p>
+        <p className="my-4 text-sm flex justify-between px-3">
+          ¿No tienes una cuenta?
+          <Link to="/register" className="text-blue-700 hover:text-blue-900">
+            Registro
+          </Link>
+        </p>
       </Form>
     </Container>
   );
