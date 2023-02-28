@@ -50,7 +50,6 @@ const NavBar = () => {
 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-
               <Nav className="me-auto">
                 {
                   !user ?
@@ -67,7 +66,6 @@ const NavBar = () => {
                       </LinkContainer>
                     )
                   })}
-
                 </NavDropdown>
               </Nav>
               <Nav className="me-8" >
