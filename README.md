@@ -18,6 +18,7 @@ A fines de ejemplo, el checkout permite generar un pdf de cada pedido, para lo c
 * react-bootrstrap
 * react-router-bootstrap
 * react-pdfreact-pdf
+* react-firebase
 
 Este proyecto es el trabajo final de la cursada del curso de React de Coderhouse.
 
@@ -25,7 +26,9 @@ El proyecto utiliza React-bootstrap para manejar los estilos gráficos y Firebas
 
 ## Firebase / Firestore
 
-*Los datos están alojados en documentos de Firebase/Firestore.*###### products
+*Los datos están alojados en documentos de Firebase/Firestore.
+
+###### products
 
 Contiene los datos de los productos
 
@@ -40,3 +43,7 @@ Contiene los datos de los pedidos
 ###### categories
 
 Contiene los datos de las categorías { id, name, description }
+
+---
+
+También se
