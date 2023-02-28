@@ -4,10 +4,14 @@ import { Spinner } from "../../../components"
 import { Container, Image, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
 import { categoriesService } from "../../../services"
+import { useAuth } from "../../../context/AuthContext"
+
 
 const NavBar = () => {
   const [menuLinks, setMenuLinks] = useState()
   const [isLoading, setisLoading] = useState(true)
+  const { user } = useAuth()
+
 
   useEffect(() => {
     categoriesService.getAll()
@@ -23,6 +27,7 @@ const NavBar = () => {
       })
   }, [])
 
+  console.log(user.displayName)
   return (
     <>
       {isLoading ? (
@@ -47,7 +52,12 @@ const NavBar = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
 
               <Nav className="me-auto">
-                <LinkContainer to="/historia"><Nav.Link>Nuestra Historia</Nav.Link></LinkContainer>
+                {
+                  !user ?
+                  <LinkContainer to="/login"><Nav.Link>Iniciar Sesión</Nav.Link></LinkContainer>
+                  :
+                  <LinkContainer to="/"><Nav.Link>{user.displayName}</Nav.Link></LinkContainer>
+                }
                 <LinkContainer to="/contact"><Nav.Link>Contáctenos</Nav.Link></LinkContainer>
                 <NavDropdown title="Categorías" id="collasible-nav-dropdown">
                   {menuLinks.map(menuLink => {
