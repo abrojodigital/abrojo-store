@@ -46,4 +46,4 @@ Contiene los datos de las categorías { id, name, description }
 
 ---
 
-También se
+Para acceder al Checkout del carrito será necesario loguearse al sistema. A tal fin, se implementa un context que utiliza Firebase Authentication.
