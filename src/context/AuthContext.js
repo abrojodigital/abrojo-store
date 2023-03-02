@@ -18,6 +18,8 @@ export const useAuth = () => {
   return context;
 };
 
+const googleProvider = new GoogleAuthProvider();
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,7 +33,6 @@ export function AuthProvider({ children }) {
   };
 
   const loginWithGoogle = () => {
-    const googleProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleProvider);
   };
 
