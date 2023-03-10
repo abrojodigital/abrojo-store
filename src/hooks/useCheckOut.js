@@ -97,7 +97,7 @@ const useCheckOut = ({ buyerInfo }) => {
       setIsSubmitting(false)
     }
   }
-  
+
 
   useEffect(() => {
     const fetchData = async () => {
