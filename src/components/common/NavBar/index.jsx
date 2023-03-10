@@ -18,6 +18,7 @@ const NavBar = () => {
       .then(data => {
         const links = data.map(({name, description}) => {
           return {
+            key:Date.now(),
             description: description,
             url: `/products/category/${name}`
           }
