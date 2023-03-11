@@ -27,7 +27,6 @@ const NavBar = () => {
       })
   }, [])
 
-  console.log(user.displayName)
   return (
     <>
       {isLoading ? (
