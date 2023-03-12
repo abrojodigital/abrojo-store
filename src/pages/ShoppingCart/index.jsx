@@ -13,8 +13,10 @@ const ShoppingCart = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsLoading(false)
-    getTotalCart().then(data => setTotal(data))
+    getTotalCart().then(data => {
+      setTotal(data)
+      setIsLoading(false)
+    })
   }, [cartItems])
 
 
@@ -38,8 +40,8 @@ const ShoppingCart = () => {
           <h2>Su carrito </h2>
         </Col>
       </Row>
-      {isLoading && <Spinner />}
-      {!isLoading && renderCart()}
+      
+      {isLoading ? <Spinner /> : renderCart()}
 
       <Row className="mt-3">
         <Col xs={12}>
